@@ -47,6 +47,7 @@ class ViewController: NSViewController {
 //            CIFilter(name: "CIWhitePointAdjust")!
             
         ]
+        pdfView.scrollLineDown(sender: )
         pdfView.autoScales = true
         pdfView.backgroundColor = .clear
         pdfView.displaysPageBreaks = true
@@ -56,7 +57,7 @@ class ViewController: NSViewController {
         pdfView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         pdfView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        guard let path = Bundle.main.url(forResource: "here3", withExtension: "pdf") else { return }
+        guard let path = Bundle.main.url(forResource: "here1", withExtension: "pdf") else { return }
 //        let path = URL(string: "~/Desktop/here.pdf")!
 
         if let document = PDFDocument(url: path) {
