@@ -29,12 +29,25 @@ class ViewController: NSViewController {
 
         
         let pdfView = PDFView()
+//        view.backgroundColor
+//        self.view.backgroundColor = .clear
+//        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
     
 //        var backgroundColor: NSColor { get set }
         
         pdfView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pdfView)
-        let filters = [CIFilter(name: "CIColorInvert")!]
+        let filters = [
+            CIFilter(name: "CIColorInvert")!,
+            CIFilter(name: "CIColorControls", parameters: ["inputContrast": 0.85,
+//                                                           "inputSaturation": 500
+                                                           ])!,
+            CIFilter(name: "CISharpenLuminance", parameters: ["inputSharpness": 1.5])!,
+            CIFilter(name: "CIGammaAdjust", parameters: ["inputPower": 2])!,
+//            CIFilter(name: "CIWhitePointAdjust")!
+            
+        ]
+        pdfView.autoScales = true
         pdfView.backgroundColor = .clear
         pdfView.displaysPageBreaks = true
         pdfView.contentFilters = filters
@@ -43,7 +56,7 @@ class ViewController: NSViewController {
         pdfView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         pdfView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        guard let path = Bundle.main.url(forResource: "here1", withExtension: "pdf") else { return }
+        guard let path = Bundle.main.url(forResource: "here3", withExtension: "pdf") else { return }
 //        let path = URL(string: "~/Desktop/here.pdf")!
 
         if let document = PDFDocument(url: path) {

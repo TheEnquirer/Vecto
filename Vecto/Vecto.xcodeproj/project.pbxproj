@@ -14,6 +14,8 @@
 		B890792325D5FD2E00ECCD34 /* VectoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890792225D5FD2E00ECCD34 /* VectoTests.swift */; };
 		B890792E25D5FD2E00ECCD34 /* VectoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890792D25D5FD2E00ECCD34 /* VectoUITests.swift */; };
 		B890794925D603AC00ECCD34 /* here1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B890794825D603AC00ECCD34 /* here1.pdf */; };
+		B890795125D60B2200ECCD34 /* here2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B890795025D60B2200ECCD34 /* here2.pdf */; };
+		B890795625D611DF00ECCD34 /* here3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B890795525D611DF00ECCD34 /* here3.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		B890792D25D5FD2E00ECCD34 /* VectoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectoUITests.swift; sourceTree = "<group>"; };
 		B890792F25D5FD2E00ECCD34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B890794825D603AC00ECCD34 /* here1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = here1.pdf; path = ../../../../../Downloads/here1.pdf; sourceTree = "<group>"; };
+		B890795025D60B2200ECCD34 /* here2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = here2.pdf; path = ../../../../../Downloads/here2.pdf; sourceTree = "<group>"; };
+		B890795525D611DF00ECCD34 /* here3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = here3.pdf; path = ../../../../KnowledgeBase/2020HIST201/here3.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				B890791825D5FD2E00ECCD34 /* Info.plist */,
 				B890791925D5FD2E00ECCD34 /* Vecto.entitlements */,
 				B890794825D603AC00ECCD34 /* here1.pdf */,
+				B890795025D60B2200ECCD34 /* here2.pdf */,
+				B890795525D611DF00ECCD34 /* here3.pdf */,
 			);
 			path = Vecto;
 			sourceTree = "<group>";
@@ -233,6 +239,8 @@
 				B890791425D5FD2E00ECCD34 /* Assets.xcassets in Resources */,
 				B890791725D5FD2E00ECCD34 /* Main.storyboard in Resources */,
 				B890794925D603AC00ECCD34 /* here1.pdf in Resources */,
+				B890795125D60B2200ECCD34 /* here2.pdf in Resources */,
+				B890795625D611DF00ECCD34 /* here3.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
