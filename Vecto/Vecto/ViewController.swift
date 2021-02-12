@@ -9,7 +9,32 @@ import Cocoa
 import PDFKit
 
 class ViewController: NSViewController {
-
+    let pdfView = PDFView()
+    override func keyDown(with event: NSEvent) {
+        switch event.modifierFlags.intersection(.deviceIndependentFlagsMask) {
+        case [] where event.characters == "j":
+//            print("command-l or command-shift-l")
+//            view.scroll(<#T##point: NSPoint##NSPoint#>)
+            for _ in 1...4 {
+                pdfView.scrollLineUp(pdfView)
+            }
+        case [] where event.characters == "k":
+            for _ in 1...4 {
+                pdfView.scrollLineDown(pdfView)
+            }
+        case [] where event.characters == "g":
+            pdfView.scrollToBeginningOfDocument(pdfView)
+        case [.shift ] where event.characters == "G":
+            pdfView.scrollToEndOfDocument(pdfView)
+        case [.shift ] where event.characters == "H":
+            pdfView.scrollPageUp(pdfView)
+        case [.shift ] where event.characters == "L":
+            pdfView.scrollPageDown(pdfView)
+            
+        default:
+            break
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 //        let betterBounds = (0, 0, 1480, 1270)
@@ -28,7 +53,8 @@ class ViewController: NSViewController {
 //        pdfView.document = PDFDocument(url: URL(string: "~/Desktop/here.pdf")!)
 
         
-        let pdfView = PDFView()
+        
+//        pdfView.curr
 //        view.backgroundColor
 //        self.view.backgroundColor = .clear
 //        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
@@ -47,7 +73,7 @@ class ViewController: NSViewController {
 //            CIFilter(name: "CIWhitePointAdjust")!
             
         ]
-        pdfView.scrollLineDown(sender: )
+        pdfView.scrollLineDown([])
         pdfView.autoScales = true
         pdfView.backgroundColor = .clear
         pdfView.displaysPageBreaks = true
