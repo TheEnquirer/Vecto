@@ -10,7 +10,9 @@ import PDFKit
 
 class ViewController: NSViewController {
     let pdfView = PDFView()
+    var prefix = 1
     override func keyDown(with event: NSEvent) {
+        print(event)
         switch event.modifierFlags.intersection(.deviceIndependentFlagsMask) {
         case [] where event.characters == "j":
 //            print("command-l or command-shift-l")
@@ -22,6 +24,7 @@ class ViewController: NSViewController {
             for _ in 1...4 {
                 pdfView.scrollLineDown(pdfView)
             }
+            
         case [] where event.characters == "g":
             pdfView.scrollToBeginningOfDocument(pdfView)
         case [.shift ] where event.characters == "G":
@@ -30,6 +33,12 @@ class ViewController: NSViewController {
             pdfView.scrollPageUp(pdfView)
         case [.shift ] where event.characters == "L":
             pdfView.scrollPageDown(pdfView)
+        case [] where event.keyCode == 53:
+            prefix = 0
+        case [] where event.keyCode >= 18 && event.keyCode <= 29:
+            prefix = Int(String(prefix) + String(Int(event.characters!) ?? 0)) ?? 0
+//                Int(event.characters!) ?? 0
+            print(prefix)
             
         default:
             break
