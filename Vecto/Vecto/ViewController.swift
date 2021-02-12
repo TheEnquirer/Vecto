@@ -13,11 +13,9 @@ class ViewController: NSViewController {
     var prefix = 0
     var prevChar = ""
     override func keyDown(with event: NSEvent) {
-//        print(event)
         switch event.modifierFlags.intersection(.deviceIndependentFlagsMask) {
         case [] where event.characters == "j":
-//            print("command-l or command-shift-l")
-//            view.scroll(<#T##point: NSPoint##NSPoint#>)
+
             for _ in 1...4 + (4 * prefix-1) {
                 pdfView.scrollLineUp(pdfView)
                 prefix = 0
@@ -26,7 +24,6 @@ class ViewController: NSViewController {
             for _ in 1...4 + (4 * prefix-1) {
                 pdfView.scrollLineDown(pdfView)
                 prefix = 0
-
             }
             
         case [] where event.characters == "g":
@@ -34,29 +31,13 @@ class ViewController: NSViewController {
                 pdfView.scrollToBeginningOfDocument(pdfView)
                 for _ in 0...prefix {
                     pdfView.scrollPageUp(pdfView)
-                    print("running")
                 }
                 pdfView.scrollPageDown(pdfView)
-//                if prefix == 0 {
-//                    pdfView.scrollToBeginningOfDocument(pdfView)
-//                }
                 prefix = 0
                 prevChar = ""
             } else {
                 prevChar = "g"
-                print("here")
-//                let curPage = Int(pdfView.currentPage?.label ?? "0") ?? 0
-//                print(curPage)
-//                let totalPage = prefix - curPage
-//                if totalPage > 0 {
-//                    pdfView.scrollPageDown(pdfView)
-//                }
-//                for _ in 1...prefix - Int(curPage) {
-//                    pdfView.scrollPageDown(pdfView)
-//                }
-                
             }
-            
             
         case [.shift ] where event.characters == "G":
             pdfView.scrollToEndOfDocument(pdfView)
@@ -88,29 +69,6 @@ class ViewController: NSViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let betterBounds = (0, 0, 1480, 1270)
-////        self.view.setBoundsSize(n)
-//        let pdfView = PDFView(frame: self.view.bounds)
-//        print(self.view.bounds)
-////            pdfView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//            self.view.addSubview(pdfView)
-//
-//            // Fit content in PDFView.
-//            pdfView.autoScales = true
-//
-//            // Load Sample.pdf file from app bundle.
-////            let fileURL = Bundle.main.url(forResource: "Sample", withExtension: "pdf")
-////            pdfView.document = PDFDocument(url: fileURL!)
-//        pdfView.document = PDFDocument(url: URL(string: "~/Desktop/here.pdf")!)
-
-        
-        
-//        pdfView.curr
-//        view.backgroundColor
-//        self.view.backgroundColor = .clear
-//        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
-    
-//        var backgroundColor: NSColor { get set }
         
         pdfView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pdfView)
