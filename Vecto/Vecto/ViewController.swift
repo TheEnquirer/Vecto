@@ -29,10 +29,15 @@ class ViewController: NSViewController {
 
         
         let pdfView = PDFView()
-
+    
+//        var backgroundColor: NSColor { get set }
+        
         pdfView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pdfView)
-
+        let filters = [CIFilter(name: "CIColorInvert")!]
+        pdfView.backgroundColor = .clear
+        pdfView.displaysPageBreaks = true
+        pdfView.contentFilters = filters
         pdfView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         pdfView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         pdfView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
