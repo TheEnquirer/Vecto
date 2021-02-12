@@ -44,14 +44,14 @@ class ViewController: NSViewController {
             
         case [.shift ] where event.characters == "L":
             for _ in 1...1 + prefix {
-            pdfView.scrollPageUp(pdfView)
-            prefix = 0
+                pdfView.scrollPageUp(pdfView)
+                prefix = 0
             }
             
         case [.shift ] where event.characters == "H":
             for _ in 1...1 + prefix {
-            pdfView.scrollPageDown(pdfView)
-            prefix = 0
+                pdfView.scrollPageDown(pdfView)
+                prefix = 0
             }
             
         case [] where event.keyCode == 53:
