@@ -7,63 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B8CB614325D5004D00F692BF /* VectoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB614225D5004D00F692BF /* VectoApp.swift */; };
-		B8CB614525D5004D00F692BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB614425D5004D00F692BF /* ContentView.swift */; };
-		B8CB614725D5004F00F692BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8CB614625D5004F00F692BF /* Assets.xcassets */; };
-		B8CB614A25D5004F00F692BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8CB614925D5004F00F692BF /* Preview Assets.xcassets */; };
-		B8CB615625D5004F00F692BF /* VectoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB615525D5004F00F692BF /* VectoTests.swift */; };
-		B8CB616125D5004F00F692BF /* VectoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB616025D5004F00F692BF /* VectoUITests.swift */; };
+		B890791025D5FD2B00ECCD34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890790F25D5FD2B00ECCD34 /* AppDelegate.swift */; };
+		B890791225D5FD2B00ECCD34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890791125D5FD2B00ECCD34 /* ViewController.swift */; };
+		B890791425D5FD2E00ECCD34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B890791325D5FD2E00ECCD34 /* Assets.xcassets */; };
+		B890791725D5FD2E00ECCD34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B890791525D5FD2E00ECCD34 /* Main.storyboard */; };
+		B890792325D5FD2E00ECCD34 /* VectoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890792225D5FD2E00ECCD34 /* VectoTests.swift */; };
+		B890792E25D5FD2E00ECCD34 /* VectoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890792D25D5FD2E00ECCD34 /* VectoUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B8CB615225D5004F00F692BF /* PBXContainerItemProxy */ = {
+		B890791F25D5FD2E00ECCD34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B8CB613725D5004D00F692BF /* Project object */;
+			containerPortal = B890790425D5FD2B00ECCD34 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B8CB613E25D5004D00F692BF;
+			remoteGlobalIDString = B890790B25D5FD2B00ECCD34;
 			remoteInfo = Vecto;
 		};
-		B8CB615D25D5004F00F692BF /* PBXContainerItemProxy */ = {
+		B890792A25D5FD2E00ECCD34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B8CB613725D5004D00F692BF /* Project object */;
+			containerPortal = B890790425D5FD2B00ECCD34 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B8CB613E25D5004D00F692BF;
+			remoteGlobalIDString = B890790B25D5FD2B00ECCD34;
 			remoteInfo = Vecto;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B8CB613F25D5004D00F692BF /* Vecto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vecto.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8CB614225D5004D00F692BF /* VectoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectoApp.swift; sourceTree = "<group>"; };
-		B8CB614425D5004D00F692BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B8CB614625D5004F00F692BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B8CB614925D5004F00F692BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B8CB614B25D5004F00F692BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8CB614C25D5004F00F692BF /* Vecto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vecto.entitlements; sourceTree = "<group>"; };
-		B8CB615125D5004F00F692BF /* VectoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VectoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8CB615525D5004F00F692BF /* VectoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectoTests.swift; sourceTree = "<group>"; };
-		B8CB615725D5004F00F692BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8CB615C25D5004F00F692BF /* VectoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VectoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8CB616025D5004F00F692BF /* VectoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectoUITests.swift; sourceTree = "<group>"; };
-		B8CB616225D5004F00F692BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B890790C25D5FD2B00ECCD34 /* Vecto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vecto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B890790F25D5FD2B00ECCD34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B890791125D5FD2B00ECCD34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B890791325D5FD2E00ECCD34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B890791625D5FD2E00ECCD34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B890791825D5FD2E00ECCD34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B890791925D5FD2E00ECCD34 /* Vecto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vecto.entitlements; sourceTree = "<group>"; };
+		B890791E25D5FD2E00ECCD34 /* VectoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VectoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B890792225D5FD2E00ECCD34 /* VectoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectoTests.swift; sourceTree = "<group>"; };
+		B890792425D5FD2E00ECCD34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B890792925D5FD2E00ECCD34 /* VectoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VectoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B890792D25D5FD2E00ECCD34 /* VectoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectoUITests.swift; sourceTree = "<group>"; };
+		B890792F25D5FD2E00ECCD34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B8CB613C25D5004D00F692BF /* Frameworks */ = {
+		B890790925D5FD2B00ECCD34 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8CB614E25D5004F00F692BF /* Frameworks */ = {
+		B890791B25D5FD2E00ECCD34 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8CB615925D5004F00F692BF /* Frameworks */ = {
+		B890792625D5FD2E00ECCD34 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -73,61 +73,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B8CB613625D5004D00F692BF = {
+		B890790325D5FD2B00ECCD34 = {
 			isa = PBXGroup;
 			children = (
-				B8CB614125D5004D00F692BF /* Vecto */,
-				B8CB615425D5004F00F692BF /* VectoTests */,
-				B8CB615F25D5004F00F692BF /* VectoUITests */,
-				B8CB614025D5004D00F692BF /* Products */,
+				B890790E25D5FD2B00ECCD34 /* Vecto */,
+				B890792125D5FD2E00ECCD34 /* VectoTests */,
+				B890792C25D5FD2E00ECCD34 /* VectoUITests */,
+				B890790D25D5FD2B00ECCD34 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		B8CB614025D5004D00F692BF /* Products */ = {
+		B890790D25D5FD2B00ECCD34 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B8CB613F25D5004D00F692BF /* Vecto.app */,
-				B8CB615125D5004F00F692BF /* VectoTests.xctest */,
-				B8CB615C25D5004F00F692BF /* VectoUITests.xctest */,
+				B890790C25D5FD2B00ECCD34 /* Vecto.app */,
+				B890791E25D5FD2E00ECCD34 /* VectoTests.xctest */,
+				B890792925D5FD2E00ECCD34 /* VectoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B8CB614125D5004D00F692BF /* Vecto */ = {
+		B890790E25D5FD2B00ECCD34 /* Vecto */ = {
 			isa = PBXGroup;
 			children = (
-				B8CB614225D5004D00F692BF /* VectoApp.swift */,
-				B8CB614425D5004D00F692BF /* ContentView.swift */,
-				B8CB614625D5004F00F692BF /* Assets.xcassets */,
-				B8CB614B25D5004F00F692BF /* Info.plist */,
-				B8CB614C25D5004F00F692BF /* Vecto.entitlements */,
-				B8CB614825D5004F00F692BF /* Preview Content */,
+				B890790F25D5FD2B00ECCD34 /* AppDelegate.swift */,
+				B890791125D5FD2B00ECCD34 /* ViewController.swift */,
+				B890791325D5FD2E00ECCD34 /* Assets.xcassets */,
+				B890791525D5FD2E00ECCD34 /* Main.storyboard */,
+				B890791825D5FD2E00ECCD34 /* Info.plist */,
+				B890791925D5FD2E00ECCD34 /* Vecto.entitlements */,
 			);
 			path = Vecto;
 			sourceTree = "<group>";
 		};
-		B8CB614825D5004F00F692BF /* Preview Content */ = {
+		B890792125D5FD2E00ECCD34 /* VectoTests */ = {
 			isa = PBXGroup;
 			children = (
-				B8CB614925D5004F00F692BF /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		B8CB615425D5004F00F692BF /* VectoTests */ = {
-			isa = PBXGroup;
-			children = (
-				B8CB615525D5004F00F692BF /* VectoTests.swift */,
-				B8CB615725D5004F00F692BF /* Info.plist */,
+				B890792225D5FD2E00ECCD34 /* VectoTests.swift */,
+				B890792425D5FD2E00ECCD34 /* Info.plist */,
 			);
 			path = VectoTests;
 			sourceTree = "<group>";
 		};
-		B8CB615F25D5004F00F692BF /* VectoUITests */ = {
+		B890792C25D5FD2E00ECCD34 /* VectoUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B8CB616025D5004F00F692BF /* VectoUITests.swift */,
-				B8CB616225D5004F00F692BF /* Info.plist */,
+				B890792D25D5FD2E00ECCD34 /* VectoUITests.swift */,
+				B890792F25D5FD2E00ECCD34 /* Info.plist */,
 			);
 			path = VectoUITests;
 			sourceTree = "<group>";
@@ -135,13 +127,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B8CB613E25D5004D00F692BF /* Vecto */ = {
+		B890790B25D5FD2B00ECCD34 /* Vecto */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8CB616525D5004F00F692BF /* Build configuration list for PBXNativeTarget "Vecto" */;
+			buildConfigurationList = B890793225D5FD2E00ECCD34 /* Build configuration list for PBXNativeTarget "Vecto" */;
 			buildPhases = (
-				B8CB613B25D5004D00F692BF /* Sources */,
-				B8CB613C25D5004D00F692BF /* Frameworks */,
-				B8CB613D25D5004D00F692BF /* Resources */,
+				B890790825D5FD2B00ECCD34 /* Sources */,
+				B890790925D5FD2B00ECCD34 /* Frameworks */,
+				B890790A25D5FD2B00ECCD34 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -149,68 +141,68 @@
 			);
 			name = Vecto;
 			productName = Vecto;
-			productReference = B8CB613F25D5004D00F692BF /* Vecto.app */;
+			productReference = B890790C25D5FD2B00ECCD34 /* Vecto.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B8CB615025D5004F00F692BF /* VectoTests */ = {
+		B890791D25D5FD2E00ECCD34 /* VectoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8CB616825D5004F00F692BF /* Build configuration list for PBXNativeTarget "VectoTests" */;
+			buildConfigurationList = B890793525D5FD2E00ECCD34 /* Build configuration list for PBXNativeTarget "VectoTests" */;
 			buildPhases = (
-				B8CB614D25D5004F00F692BF /* Sources */,
-				B8CB614E25D5004F00F692BF /* Frameworks */,
-				B8CB614F25D5004F00F692BF /* Resources */,
+				B890791A25D5FD2E00ECCD34 /* Sources */,
+				B890791B25D5FD2E00ECCD34 /* Frameworks */,
+				B890791C25D5FD2E00ECCD34 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B8CB615325D5004F00F692BF /* PBXTargetDependency */,
+				B890792025D5FD2E00ECCD34 /* PBXTargetDependency */,
 			);
 			name = VectoTests;
 			productName = VectoTests;
-			productReference = B8CB615125D5004F00F692BF /* VectoTests.xctest */;
+			productReference = B890791E25D5FD2E00ECCD34 /* VectoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B8CB615B25D5004F00F692BF /* VectoUITests */ = {
+		B890792825D5FD2E00ECCD34 /* VectoUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8CB616B25D5004F00F692BF /* Build configuration list for PBXNativeTarget "VectoUITests" */;
+			buildConfigurationList = B890793825D5FD2E00ECCD34 /* Build configuration list for PBXNativeTarget "VectoUITests" */;
 			buildPhases = (
-				B8CB615825D5004F00F692BF /* Sources */,
-				B8CB615925D5004F00F692BF /* Frameworks */,
-				B8CB615A25D5004F00F692BF /* Resources */,
+				B890792525D5FD2E00ECCD34 /* Sources */,
+				B890792625D5FD2E00ECCD34 /* Frameworks */,
+				B890792725D5FD2E00ECCD34 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B8CB615E25D5004F00F692BF /* PBXTargetDependency */,
+				B890792B25D5FD2E00ECCD34 /* PBXTargetDependency */,
 			);
 			name = VectoUITests;
 			productName = VectoUITests;
-			productReference = B8CB615C25D5004F00F692BF /* VectoUITests.xctest */;
+			productReference = B890792925D5FD2E00ECCD34 /* VectoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B8CB613725D5004D00F692BF /* Project object */ = {
+		B890790425D5FD2B00ECCD34 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
-					B8CB613E25D5004D00F692BF = {
+					B890790B25D5FD2B00ECCD34 = {
 						CreatedOnToolsVersion = 12.4;
 					};
-					B8CB615025D5004F00F692BF = {
+					B890791D25D5FD2E00ECCD34 = {
 						CreatedOnToolsVersion = 12.4;
-						TestTargetID = B8CB613E25D5004D00F692BF;
+						TestTargetID = B890790B25D5FD2B00ECCD34;
 					};
-					B8CB615B25D5004F00F692BF = {
+					B890792825D5FD2E00ECCD34 = {
 						CreatedOnToolsVersion = 12.4;
-						TestTargetID = B8CB613E25D5004D00F692BF;
+						TestTargetID = B890790B25D5FD2B00ECCD34;
 					};
 				};
 			};
-			buildConfigurationList = B8CB613A25D5004D00F692BF /* Build configuration list for PBXProject "Vecto" */;
+			buildConfigurationList = B890790725D5FD2B00ECCD34 /* Build configuration list for PBXProject "Vecto" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -218,36 +210,36 @@
 				en,
 				Base,
 			);
-			mainGroup = B8CB613625D5004D00F692BF;
-			productRefGroup = B8CB614025D5004D00F692BF /* Products */;
+			mainGroup = B890790325D5FD2B00ECCD34;
+			productRefGroup = B890790D25D5FD2B00ECCD34 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B8CB613E25D5004D00F692BF /* Vecto */,
-				B8CB615025D5004F00F692BF /* VectoTests */,
-				B8CB615B25D5004F00F692BF /* VectoUITests */,
+				B890790B25D5FD2B00ECCD34 /* Vecto */,
+				B890791D25D5FD2E00ECCD34 /* VectoTests */,
+				B890792825D5FD2E00ECCD34 /* VectoUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B8CB613D25D5004D00F692BF /* Resources */ = {
+		B890790A25D5FD2B00ECCD34 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8CB614A25D5004F00F692BF /* Preview Assets.xcassets in Resources */,
-				B8CB614725D5004F00F692BF /* Assets.xcassets in Resources */,
+				B890791425D5FD2E00ECCD34 /* Assets.xcassets in Resources */,
+				B890791725D5FD2E00ECCD34 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8CB614F25D5004F00F692BF /* Resources */ = {
+		B890791C25D5FD2E00ECCD34 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8CB615A25D5004F00F692BF /* Resources */ = {
+		B890792725D5FD2E00ECCD34 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -257,48 +249,59 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B8CB613B25D5004D00F692BF /* Sources */ = {
+		B890790825D5FD2B00ECCD34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8CB614525D5004D00F692BF /* ContentView.swift in Sources */,
-				B8CB614325D5004D00F692BF /* VectoApp.swift in Sources */,
+				B890791225D5FD2B00ECCD34 /* ViewController.swift in Sources */,
+				B890791025D5FD2B00ECCD34 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8CB614D25D5004F00F692BF /* Sources */ = {
+		B890791A25D5FD2E00ECCD34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8CB615625D5004F00F692BF /* VectoTests.swift in Sources */,
+				B890792325D5FD2E00ECCD34 /* VectoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8CB615825D5004F00F692BF /* Sources */ = {
+		B890792525D5FD2E00ECCD34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8CB616125D5004F00F692BF /* VectoUITests.swift in Sources */,
+				B890792E25D5FD2E00ECCD34 /* VectoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B8CB615325D5004F00F692BF /* PBXTargetDependency */ = {
+		B890792025D5FD2E00ECCD34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B8CB613E25D5004D00F692BF /* Vecto */;
-			targetProxy = B8CB615225D5004F00F692BF /* PBXContainerItemProxy */;
+			target = B890790B25D5FD2B00ECCD34 /* Vecto */;
+			targetProxy = B890791F25D5FD2E00ECCD34 /* PBXContainerItemProxy */;
 		};
-		B8CB615E25D5004F00F692BF /* PBXTargetDependency */ = {
+		B890792B25D5FD2E00ECCD34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B8CB613E25D5004D00F692BF /* Vecto */;
-			targetProxy = B8CB615D25D5004F00F692BF /* PBXContainerItemProxy */;
+			target = B890790B25D5FD2B00ECCD34 /* Vecto */;
+			targetProxy = B890792A25D5FD2E00ECCD34 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		B890791525D5FD2E00ECCD34 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B890791625D5FD2E00ECCD34 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		B8CB616325D5004F00F692BF /* Debug */ = {
+		B890793025D5FD2E00ECCD34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -359,7 +362,7 @@
 			};
 			name = Debug;
 		};
-		B8CB616425D5004F00F692BF /* Release */ = {
+		B890793125D5FD2E00ECCD34 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -413,7 +416,7 @@
 			};
 			name = Release;
 		};
-		B8CB616625D5004F00F692BF /* Debug */ = {
+		B890793325D5FD2E00ECCD34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -421,21 +424,18 @@
 				CODE_SIGN_ENTITLEMENTS = Vecto/Vecto.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Vecto/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Vecto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.enquirer.Vecto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		B8CB616725D5004F00F692BF /* Release */ = {
+		B890793425D5FD2E00ECCD34 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -443,21 +443,18 @@
 				CODE_SIGN_ENTITLEMENTS = Vecto/Vecto.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Vecto/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Vecto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.enquirer.Vecto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		B8CB616925D5004F00F692BF /* Debug */ = {
+		B890793625D5FD2E00ECCD34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -470,7 +467,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.enquirer.VectoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -478,7 +475,7 @@
 			};
 			name = Debug;
 		};
-		B8CB616A25D5004F00F692BF /* Release */ = {
+		B890793725D5FD2E00ECCD34 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -491,7 +488,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.enquirer.VectoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -499,7 +496,7 @@
 			};
 			name = Release;
 		};
-		B8CB616C25D5004F00F692BF /* Debug */ = {
+		B890793925D5FD2E00ECCD34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -518,7 +515,7 @@
 			};
 			name = Debug;
 		};
-		B8CB616D25D5004F00F692BF /* Release */ = {
+		B890793A25D5FD2E00ECCD34 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -540,43 +537,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B8CB613A25D5004D00F692BF /* Build configuration list for PBXProject "Vecto" */ = {
+		B890790725D5FD2B00ECCD34 /* Build configuration list for PBXProject "Vecto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B8CB616325D5004F00F692BF /* Debug */,
-				B8CB616425D5004F00F692BF /* Release */,
+				B890793025D5FD2E00ECCD34 /* Debug */,
+				B890793125D5FD2E00ECCD34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8CB616525D5004F00F692BF /* Build configuration list for PBXNativeTarget "Vecto" */ = {
+		B890793225D5FD2E00ECCD34 /* Build configuration list for PBXNativeTarget "Vecto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B8CB616625D5004F00F692BF /* Debug */,
-				B8CB616725D5004F00F692BF /* Release */,
+				B890793325D5FD2E00ECCD34 /* Debug */,
+				B890793425D5FD2E00ECCD34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8CB616825D5004F00F692BF /* Build configuration list for PBXNativeTarget "VectoTests" */ = {
+		B890793525D5FD2E00ECCD34 /* Build configuration list for PBXNativeTarget "VectoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B8CB616925D5004F00F692BF /* Debug */,
-				B8CB616A25D5004F00F692BF /* Release */,
+				B890793625D5FD2E00ECCD34 /* Debug */,
+				B890793725D5FD2E00ECCD34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8CB616B25D5004F00F692BF /* Build configuration list for PBXNativeTarget "VectoUITests" */ = {
+		B890793825D5FD2E00ECCD34 /* Build configuration list for PBXNativeTarget "VectoUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B8CB616C25D5004F00F692BF /* Debug */,
-				B8CB616D25D5004F00F692BF /* Release */,
+				B890793925D5FD2E00ECCD34 /* Debug */,
+				B890793A25D5FD2E00ECCD34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B8CB613725D5004D00F692BF /* Project object */;
+	rootObject = B890790425D5FD2B00ECCD34 /* Project object */;
 }
