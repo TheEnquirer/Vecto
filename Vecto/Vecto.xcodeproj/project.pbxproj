@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6B2738E25D63C0D00B35F97 /* here3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B6B2738B25D63C0C00B35F97 /* here3.pdf */; };
+		B6B2738F25D63C0D00B35F97 /* here1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B6B2738C25D63C0D00B35F97 /* here1.pdf */; };
+		B6B2739025D63C0D00B35F97 /* here2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B6B2738D25D63C0D00B35F97 /* here2.pdf */; };
 		B890791025D5FD2B00ECCD34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890790F25D5FD2B00ECCD34 /* AppDelegate.swift */; };
 		B890791225D5FD2B00ECCD34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890791125D5FD2B00ECCD34 /* ViewController.swift */; };
 		B890791425D5FD2E00ECCD34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B890791325D5FD2E00ECCD34 /* Assets.xcassets */; };
 		B890791725D5FD2E00ECCD34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B890791525D5FD2E00ECCD34 /* Main.storyboard */; };
 		B890792325D5FD2E00ECCD34 /* VectoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890792225D5FD2E00ECCD34 /* VectoTests.swift */; };
 		B890792E25D5FD2E00ECCD34 /* VectoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B890792D25D5FD2E00ECCD34 /* VectoUITests.swift */; };
-		B890794925D603AC00ECCD34 /* here1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B890794825D603AC00ECCD34 /* here1.pdf */; };
-		B890795125D60B2200ECCD34 /* here2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B890795025D60B2200ECCD34 /* here2.pdf */; };
-		B890795625D611DF00ECCD34 /* here3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B890795525D611DF00ECCD34 /* here3.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B6B2738B25D63C0C00B35F97 /* here3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = here3.pdf; sourceTree = SOURCE_ROOT; };
+		B6B2738C25D63C0D00B35F97 /* here1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = here1.pdf; sourceTree = SOURCE_ROOT; };
+		B6B2738D25D63C0D00B35F97 /* here2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = here2.pdf; sourceTree = SOURCE_ROOT; };
 		B890790C25D5FD2B00ECCD34 /* Vecto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vecto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B890790F25D5FD2B00ECCD34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B890791125D5FD2B00ECCD34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,9 +52,6 @@
 		B890792925D5FD2E00ECCD34 /* VectoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VectoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B890792D25D5FD2E00ECCD34 /* VectoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectoUITests.swift; sourceTree = "<group>"; };
 		B890792F25D5FD2E00ECCD34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B890794825D603AC00ECCD34 /* here1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = here1.pdf; path = ../../../../../Downloads/here1.pdf; sourceTree = "<group>"; };
-		B890795025D60B2200ECCD34 /* here2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = here2.pdf; path = ../../../../../Downloads/here2.pdf; sourceTree = "<group>"; };
-		B890795525D611DF00ECCD34 /* here3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = here3.pdf; path = ../../../../KnowledgeBase/2020HIST201/here3.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,12 +105,12 @@
 				B890790F25D5FD2B00ECCD34 /* AppDelegate.swift */,
 				B890791125D5FD2B00ECCD34 /* ViewController.swift */,
 				B890791325D5FD2E00ECCD34 /* Assets.xcassets */,
+				B6B2738C25D63C0D00B35F97 /* here1.pdf */,
+				B6B2738D25D63C0D00B35F97 /* here2.pdf */,
+				B6B2738B25D63C0C00B35F97 /* here3.pdf */,
 				B890791525D5FD2E00ECCD34 /* Main.storyboard */,
 				B890791825D5FD2E00ECCD34 /* Info.plist */,
 				B890791925D5FD2E00ECCD34 /* Vecto.entitlements */,
-				B890794825D603AC00ECCD34 /* here1.pdf */,
-				B890795025D60B2200ECCD34 /* here2.pdf */,
-				B890795525D611DF00ECCD34 /* here3.pdf */,
 			);
 			path = Vecto;
 			sourceTree = "<group>";
@@ -237,10 +237,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B890791425D5FD2E00ECCD34 /* Assets.xcassets in Resources */,
+				B6B2739025D63C0D00B35F97 /* here2.pdf in Resources */,
+				B6B2738E25D63C0D00B35F97 /* here3.pdf in Resources */,
+				B6B2738F25D63C0D00B35F97 /* here1.pdf in Resources */,
 				B890791725D5FD2E00ECCD34 /* Main.storyboard in Resources */,
-				B890794925D603AC00ECCD34 /* here1.pdf in Resources */,
-				B890795125D60B2200ECCD34 /* here2.pdf in Resources */,
-				B890795625D611DF00ECCD34 /* here3.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
