@@ -10,6 +10,7 @@ import PDFKit
 
 class ViewController: NSViewController {
     let pdfView = PDFView()
+//    let pageView = NSTextView()
     var prefix = 0
     var prevChar = ""
     let darkFilters = [
@@ -32,8 +33,8 @@ class ViewController: NSViewController {
     ]
     var dark = true
     override func keyDown(with event: NSEvent) {
-        let curPage = pdfView.currentPage?.label ?? "0"
-        print(curPage)
+//        let curPage = pdfView.currentPage?.label ?? "0"
+//        print(curPage)
 //            + "/" + String(pdfView.document!.pageCount)
         switch event.modifierFlags.intersection(.deviceIndependentFlagsMask) {
         case [] where event.characters == "j":
@@ -95,12 +96,15 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         pdfView.translatesAutoresizingMaskIntoConstraints = false
+//        pageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pdfView)
+//        pdfView.addSubview(pageView)
         
         
         pdfView.autoScales = true
         pdfView.backgroundColor = .clear
         pdfView.displaysPageBreaks = true
+        pdfView.pageBreakMargins = NSEdgeInsets(top: 10, left: 0, bottom: 50, right: 0)
         if dark == true {
             pdfView.contentFilters = darkFilters
         } else {
@@ -110,6 +114,23 @@ class ViewController: NSViewController {
         pdfView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         pdfView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         pdfView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+//        pageView.leadingAnchor.constraint(equalTo: pdfView.leadingAnchor).isActive = true
+//        pageView.topAnchor.constraint(equalTo: pdfView.topAnchor).isActive = true
+        
+//        pageView.insertText("here", replacementRange: NSMakeRange(0, 100))
+        
+        let label = NSTextField()
+        label.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 44))
+        label.stringValue = "My awesome label"
+        label.backgroundColor = .white
+        label.isBezeled = false
+        label.isEditable = false
+        label.sizeToFit()
+        label.backgroundColor = .red
+        label.drawsBackground = true
+        view.addSubview(label)
+        
         
         guard let path = Bundle.main.url(forResource: "here3", withExtension: "pdf") else { return }
 //        let path = URL(string: "~/Desktop/here.pdf")!
