@@ -12,7 +12,29 @@ class ViewController: NSViewController {
     let pdfView = PDFView()
     var prefix = 0
     var prevChar = ""
+    let darkFilters = [
+        CIFilter(name: "CIColorInvert")!,
+        CIFilter(name: "CIColorControls", parameters: ["inputContrast": 0.85,
+//                                                           "inputSaturation": 500
+                                                       ])!,
+        CIFilter(name: "CISharpenLuminance", parameters: ["inputSharpness": 1.5])!,
+        CIFilter(name: "CIGammaAdjust", parameters: ["inputPower": 2])!,
+        
+//            CIFilter(name: "CIWhitePointAdjust")!
+        
+    ]
+    let lightFilters = [
+//        CIFilter(name: "CIColorControls", parameters: ["inputContrast": 0.85])!
+        CIFilter(name: "CISharpenLuminance", parameters: ["inputSharpness": 1.5])!,
+        CIFilter(name: "CIColorControls", parameters: ["inputContrast": 0.55])!
+
+
+    ]
+    var dark = true
     override func keyDown(with event: NSEvent) {
+        let curPage = pdfView.currentPage?.label ?? "0"
+        print(curPage)
+//            + "/" + String(pdfView.document!.pageCount)
         switch event.modifierFlags.intersection(.deviceIndependentFlagsMask) {
         case [] where event.characters == "j":
 
@@ -53,6 +75,9 @@ class ViewController: NSViewController {
                 pdfView.scrollPageDown(pdfView)
                 prefix = 0
             }
+        case [.command, .shift] where event.characters == "l":
+            dark.toggle()
+            refreshView()
             
         case [] where event.keyCode == 53:
             prefix = 0
@@ -61,7 +86,6 @@ class ViewController: NSViewController {
         case [] where event.keyCode >= 18 && event.keyCode <= 29:
             prefix = Int(String(prefix) + String(Int(event.characters!) ?? 0)) ?? 0
 //                Int(event.characters!) ?? 0
-            print(prefix)
             
         default:
             break
@@ -72,21 +96,16 @@ class ViewController: NSViewController {
         
         pdfView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pdfView)
-        let filters = [
-            CIFilter(name: "CIColorInvert")!,
-            CIFilter(name: "CIColorControls", parameters: ["inputContrast": 0.85,
-//                                                           "inputSaturation": 500
-                                                           ])!,
-            CIFilter(name: "CISharpenLuminance", parameters: ["inputSharpness": 1.5])!,
-            CIFilter(name: "CIGammaAdjust", parameters: ["inputPower": 2])!,
-//            CIFilter(name: "CIWhitePointAdjust")!
-            
-        ]
-        pdfView.scrollLineDown([])
+        
+        
         pdfView.autoScales = true
         pdfView.backgroundColor = .clear
         pdfView.displaysPageBreaks = true
-        pdfView.contentFilters = filters
+        if dark == true {
+            pdfView.contentFilters = darkFilters
+        } else {
+            pdfView.contentFilters = lightFilters
+        }
         pdfView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         pdfView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         pdfView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -98,8 +117,17 @@ class ViewController: NSViewController {
         if let document = PDFDocument(url: path) {
             pdfView.document = document
         }
+        refreshView()
 
         // Do any additional setup after loading the view.
+    }
+    func refreshView()
+    {
+        if dark == true {
+            pdfView.contentFilters = darkFilters
+        } else {
+            pdfView.contentFilters = lightFilters
+        }
     }
 
     override var representedObject: Any? {
