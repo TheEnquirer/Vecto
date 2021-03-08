@@ -10,11 +10,20 @@ import PDFKit
 
 class ViewController: NSViewController {
     
+    /*##################################*/
+    /*            initialize            */
+    /*##################################*/
+    
     let pdfView = PDFView()
-//    let pageView = NSTextView()
     let label = NSTextField()
     var prefix = 0
     var prevChar = ""
+    var dark = true
+    
+    /*##############################*/
+    /*            colors            */
+    /*##############################*/
+    
     let darkFilters = [
         CIFilter(name: "CIColorInvert")!,
         CIFilter(name: "CIColorControls", parameters: ["inputContrast": 0.85,
@@ -24,16 +33,13 @@ class ViewController: NSViewController {
         CIFilter(name: "CIGammaAdjust", parameters: ["inputPower": 2])!,
         
 //            CIFilter(name: "CIWhitePointAdjust")!
-        
     ]
+    
     let lightFilters = [
 //        CIFilter(name: "CIColorControls", parameters: ["inputContrast": 0.85])!
         CIFilter(name: "CISharpenLuminance", parameters: ["inputSharpness": 1.5])!,
         CIFilter(name: "CIColorControls", parameters: ["inputContrast": 0.55])!
-
-
     ]
-    
     
     var darkColors =
         [
@@ -46,19 +52,16 @@ class ViewController: NSViewController {
             "pageCount": NSColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 1),
             "countText": .darkGray
         ]
-    
-    
-    var dark = true
-    
-    
-    
-    
    
-//    item = "p"
     
     override func keyDown(with event: NSEvent) {
         
         switch event.modifierFlags.intersection(.deviceIndependentFlagsMask) {
+        
+        /*#####################*/
+        /*         nav         */
+        /*#####################*/
+        
         case [] where event.characters == "j":
 
             for _ in 1...4 + (4 * prefix-1) {
@@ -105,18 +108,25 @@ class ViewController: NSViewController {
             
         case [.command, .shift] where event.characters == "h":
             label.isHidden.toggle()
-//            refreshView()
+        
+        /*########################*/
+        /*         search         */
+        /*########################*/
         
         case [] where event.characters == "/":
 //            print("here")
             _ = pdfView.document?.beginFindString("agitation")
-//            print(arr)
+            
         case [] where event.characters == "n":
             handleNext()
             
         case [.shift] where event.characters == "N":
             handlePrev()
             
+        /*########################*/
+        /*         helper         */
+        /*########################*/
+        
         case [] where event.keyCode == 53:
             prefix = 0
             prevChar = ""
@@ -129,9 +139,16 @@ class ViewController: NSViewController {
         }
     }
     
-
+    /*############################*/
+    /*            main            */
+    /*############################*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*#########################*/
+        /*         pdfView         */
+        /*#########################*/
         
         pdfView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pdfView)
@@ -150,7 +167,11 @@ class ViewController: NSViewController {
         pdfView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         pdfView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         pdfView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-
+        
+        /*#######################*/
+        /*         label         */
+        /*#######################*/
+        
         label.translatesAutoresizingMaskIntoConstraints = false
         
         label.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 44))
@@ -167,15 +188,27 @@ class ViewController: NSViewController {
         label.drawsBackground = true
         view.addSubview(label)
         
-        
         guard let path = Bundle.main.url(forResource: "here3", withExtension: "pdf") else { return }
 //        let path = URL(string: "~/Desktop/here.pdf")!
 
+        /*#######################*/
+        /*         files         */
+        /*#######################*/
+        
         if let document = PDFDocument(url: path) {
             pdfView.document = document
         }
+        
+        /*##########################*/
+        /*         starters         */
+        /*##########################*/
+        
         refreshView()
         refreshPageCount()
+        
+        /*########################*/
+        /*         notifs         */
+        /*########################*/
         
         NotificationCenter.default.addObserver (self, selector: #selector(handlePageChange), name: Notification.Name.PDFViewPageChanged, object: nil)
         
@@ -186,51 +219,49 @@ class ViewController: NSViewController {
         NotificationCenter.default.addObserver (self, selector: #selector(handleSearchEnd), name: Notification.Name.PDFDocumentDidEndFind, object: nil)
     }
     
+    /*#################################*/
+    /*            handelers            */
+    /*#################################*/
+    
+        /*########################*/
+        /*         search         */
+        /*########################*/
+    
     var matches = [PDFSelection]()
     var inMatches = 0
     var matchLen = -1
     @objc func handleSearch(_ notification: NSNotification){
-//        num += 1
         let page = notification.userInfo!["PDFDocumentFoundSelection"]! as! PDFSelection
-        
-        
         matches.append(page)
-//        print(page)
     }
     
     @objc func handleSearchBegin(){
         inMatches = -1
         matches = []
-//        num = 0
     }
     
     @objc func handleSearchEnd(){
         matchLen = matches.count - 1
         print("end")
-//        print(num)
     }
     
-    
     func handleNext(){
-        print("here")
-        if inMatches == matchLen { inMatches = 0 } else { inMatches += 1 }
+        if inMatches >= matchLen { inMatches = 0 } else { inMatches += 1 }
         if matchLen > 0 { pdfView.go(to: matches[inMatches]) } else {print("nogud")}
     }
     
     func handlePrev(){
-        print("prev")
-        if inMatches == 0 { inMatches = matchLen } else { inMatches -= 1 }
+        if inMatches <= 0 { inMatches = matchLen } else { inMatches -= 1 }
         if matchLen > 0 { pdfView.go(to: matches[inMatches]) } else {print("nogud")}
     }
+    
+        /*############################*/
+        /*         refreshers         */
+        /*############################*/
     
     @objc func handlePageChange() {
         refreshPageCount()
     }
-    
-    var pageTrig = "0"
-    
-    
-    
     
     func refreshView()
     {
@@ -245,10 +276,8 @@ class ViewController: NSViewController {
         }
     }
     
-    
     func refreshPageCount() {
         let curPage = pdfView.currentPage?.label ?? "0"
         label.stringValue = String(curPage) + "/" + String(pdfView.document!.pageCount)
     }
 }
-
