@@ -9,6 +9,7 @@ import Cocoa
 import PDFKit
 
 class ViewController: NSViewController {
+    
     let pdfView = PDFView()
 //    let pageView = NSTextView()
     let label = NSTextField()
@@ -120,16 +121,25 @@ class ViewController: NSViewController {
         default:
             break
         }
-        refreshPageCount()
+//        refreshPageCount()
     }
+    
+    override func scrollWheel(with event: NSEvent) {
+        print("scrolling")
+    }
+    
+   
+
+          
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pdfView.translatesAutoresizingMaskIntoConstraints = false
 //        pageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pdfView)
+//        titleVisibility = .hidden
 //        pdfView.addSubview(pageView)
-        
         
         pdfView.autoScales = true
         pdfView.backgroundColor = .clear
@@ -201,7 +211,16 @@ class ViewController: NSViewController {
 //            }
 //        }
 //        pageTrig = &pdfView.currentPage!.label!
+        /* notification */
+        
+        
+        NotificationCenter.default.addObserver (self, selector: #selector(handlePageChange), name: Notification.Name.PDFViewPageChanged, object: nil)
     }
+    
+    @objc func handlePageChange() {
+            refreshPageCount()
+    }
+    
     var pageTrig = "0"
     
     
@@ -227,11 +246,12 @@ class ViewController: NSViewController {
 //        pdfView.change
     }
 
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
+//    override var representedObject: Any? {
+//        didSet {
+//        // Update the view, if already loaded.
+//        }
+//    }
+   
     
 //    NotificationCenter.default.addObserver(self, selector: #selector(handlePageChange(notification:)), name: Notification.Name.PDFViewPageChanged, object: nil)
 
