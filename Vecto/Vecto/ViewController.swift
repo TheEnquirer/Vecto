@@ -109,6 +109,11 @@ class ViewController: NSViewController {
         case [.command, .shift] where event.characters == "h":
             label.isHidden.toggle()
 //            refreshView()
+        
+        case [] where event.characters == "/":
+//            print("here")
+            var arr = pdfView.document?.beginFindString("and")
+//            print(arr)
             
         case [] where event.keyCode == 53:
             prefix = 0
@@ -124,9 +129,9 @@ class ViewController: NSViewController {
 //        refreshPageCount()
     }
     
-    override func scrollWheel(with event: NSEvent) {
-        print("scrolling")
-    }
+//    override func scrollWheel(with event: NSEvent) {
+//        print("scrolling")
+//    }
     
    
 
@@ -215,6 +220,18 @@ class ViewController: NSViewController {
         
         
         NotificationCenter.default.addObserver (self, selector: #selector(handlePageChange), name: Notification.Name.PDFViewPageChanged, object: nil)
+        
+        NotificationCenter.default.addObserver (self, selector: #selector(handleSearch), name: Notification.Name.PDFDocumentDidFindMatch, object: nil)
+        
+        NotificationCenter.default.addObserver (self, selector: #selector(handleSearch), name: Notification.Name.PDFDocumentDidBeginFind, object: nil)
+    }
+    
+    @objc func handleSearch(){
+        print("hsfs")
+    }
+    
+    @objc func handleSearchBegin(){
+        print("hsfs")
     }
     
     @objc func handlePageChange() {
