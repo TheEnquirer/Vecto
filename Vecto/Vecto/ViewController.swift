@@ -112,7 +112,7 @@ class ViewController: NSViewController {
         
         case [] where event.characters == "/":
 //            print("here")
-            var arr = pdfView.document?.beginFindString("and")
+            var arr = pdfView.document?.beginFindString("agitation")
 //            print(arr)
             
         case [] where event.keyCode == 53:
@@ -223,19 +223,34 @@ class ViewController: NSViewController {
         
         NotificationCenter.default.addObserver (self, selector: #selector(handleSearch), name: Notification.Name.PDFDocumentDidFindMatch, object: nil)
         
-        NotificationCenter.default.addObserver (self, selector: #selector(handleSearch), name: Notification.Name.PDFDocumentDidBeginFind, object: nil)
+        NotificationCenter.default.addObserver (self, selector: #selector(handleSearchBegin), name: Notification.Name.PDFDocumentDidBeginFind, object: nil)
+        
+        NotificationCenter.default.addObserver (self, selector: #selector(handleSearchEnd), name: Notification.Name.PDFDocumentDidEndFind, object: nil)
     }
     
-    @objc func handleSearch(){
-        print("hsfs")
+    var matches = [PDFSelection]()
+//    var num = 0
+    @objc func handleSearch(_ notification: NSNotification){
+//        num += 1
+        let page = notification.userInfo!["PDFDocumentFoundSelection"]! as! PDFSelection
+        
+        matches.append(page)
+//        print(page)
     }
     
     @objc func handleSearchBegin(){
-        print("hsfs")
+        matches = []
+//        num = 0
+    }
+    
+    @objc func handleSearchEnd(){
+        pdfView.go(to: matches[0])
+        print("end")
+//        print(num)
     }
     
     @objc func handlePageChange() {
-            refreshPageCount()
+        refreshPageCount()
     }
     
     var pageTrig = "0"
