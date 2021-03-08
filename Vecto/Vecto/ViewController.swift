@@ -58,9 +58,6 @@ class ViewController: NSViewController {
     
     override func keyDown(with event: NSEvent) {
         
-//        let curPage = pdfView.currentPage?.label ?? "0"
-//        print(curPage)
-//            + "/" + String(pdfView.document!.pageCount)
         switch event.modifierFlags.intersection(.deviceIndependentFlagsMask) {
         case [] where event.characters == "j":
 
@@ -112,8 +109,13 @@ class ViewController: NSViewController {
         
         case [] where event.characters == "/":
 //            print("here")
-            var arr = pdfView.document?.beginFindString("agitation")
+            _ = pdfView.document?.beginFindString("agitation")
 //            print(arr)
+        case [] where event.characters == "n":
+            handleNext()
+            
+        case [.shift] where event.characters == "N":
+            handlePrev()
             
         case [] where event.keyCode == 53:
             prefix = 0
@@ -121,30 +123,19 @@ class ViewController: NSViewController {
             
         case [] where event.keyCode >= 18 && event.keyCode <= 29:
             prefix = Int(String(prefix) + String(Int(event.characters!) ?? 0)) ?? 0
-//                Int(event.characters!) ?? 0
             
         default:
             break
         }
-//        refreshPageCount()
     }
     
-//    override func scrollWheel(with event: NSEvent) {
-//        print("scrolling")
-//    }
-    
-   
 
-          
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pdfView.translatesAutoresizingMaskIntoConstraints = false
-//        pageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pdfView)
 //        titleVisibility = .hidden
-//        pdfView.addSubview(pageView)
         
         pdfView.autoScales = true
         pdfView.backgroundColor = .clear
@@ -159,20 +150,11 @@ class ViewController: NSViewController {
         pdfView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         pdfView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         pdfView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-//        pageView.leadingAnchor.constraint(equalTo: pdfView.leadingAnchor).isActive = true
-//        pageView.topAnchor.constraint(equalTo: pdfView.topAnchor).isActive = true
-        
-//        pageView.insertText("here", replacementRange: NSMakeRange(0, 100))
-        
-        
+
         label.translatesAutoresizingMaskIntoConstraints = false
-//        label.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        label.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         
         label.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 44))
         label.stringValue = "Loading..."
-//        label.backgroundColor = .white
         label.isBezeled = false
         label.textColor = darkColors["countText"]!
         label.isEditable = false
@@ -181,11 +163,7 @@ class ViewController: NSViewController {
         shadow.shadowColor = nil
         shadow.shadowBlurRadius = 0
         label.shadow = shadow
-//        print(darkColors["pageCount"], "hii")
         label.backgroundColor = darkColors["pageCount"]!
-//        label.backgroundColor = NSColor(red: 0.07, green: 0.07, blue: 0.07, alpha: 1)
-        
-        
         label.drawsBackground = true
         view.addSubview(label)
         
@@ -198,26 +176,6 @@ class ViewController: NSViewController {
         }
         refreshView()
         refreshPageCount()
-//        var observer:NSKeyValueObservation?
-//        // then assign the return value of "observe" to it
-//        observer = pdfView.currentPage?.observe(\.label, changeHandler: { (label, change) in
-//            // text has changed,
-//            print("yes")
-//            self.refreshPageCount()
-//        })
-
-        // Do any additional setup after loading the view.
-//        var pageChange = &pdfView.currentPage!.label!{
-//            didSet { //called when item changes
-//                print("changed")
-//            }
-//            willSet {
-//                print("about to change")
-//            }
-//        }
-//        pageTrig = &pdfView.currentPage!.label!
-        /* notification */
-        
         
         NotificationCenter.default.addObserver (self, selector: #selector(handlePageChange), name: Notification.Name.PDFViewPageChanged, object: nil)
         
@@ -229,24 +187,40 @@ class ViewController: NSViewController {
     }
     
     var matches = [PDFSelection]()
-//    var num = 0
+    var inMatches = 0
+    var matchLen = -1
     @objc func handleSearch(_ notification: NSNotification){
 //        num += 1
         let page = notification.userInfo!["PDFDocumentFoundSelection"]! as! PDFSelection
+        
         
         matches.append(page)
 //        print(page)
     }
     
     @objc func handleSearchBegin(){
+        inMatches = -1
         matches = []
 //        num = 0
     }
     
     @objc func handleSearchEnd(){
-        pdfView.go(to: matches[0])
+        matchLen = matches.count - 1
         print("end")
 //        print(num)
+    }
+    
+    
+    func handleNext(){
+        print("here")
+        if inMatches == matchLen { inMatches = 0 } else { inMatches += 1 }
+        if matchLen > 0 { pdfView.go(to: matches[inMatches]) } else {print("nogud")}
+    }
+    
+    func handlePrev(){
+        print("prev")
+        if inMatches == 0 { inMatches = matchLen } else { inMatches -= 1 }
+        if matchLen > 0 { pdfView.go(to: matches[inMatches]) } else {print("nogud")}
     }
     
     @objc func handlePageChange() {
@@ -275,23 +249,6 @@ class ViewController: NSViewController {
     func refreshPageCount() {
         let curPage = pdfView.currentPage?.label ?? "0"
         label.stringValue = String(curPage) + "/" + String(pdfView.document!.pageCount)
-//        pdfView.change
     }
-
-//    override var representedObject: Any? {
-//        didSet {
-//        // Update the view, if already loaded.
-//        }
-//    }
-   
-    
-//    NotificationCenter.default.addObserver(self, selector: #selector(handlePageChange(notification:)), name: Notification.Name.PDFViewPageChanged, object: nil)
-
-//    @objc private func handlePageChange(notification: Notification)
-//    {
-//        print("Page changed")
-//    }
-
-
 }
 
