@@ -32,6 +32,9 @@ class ViewController: NSViewController {
 
 
     ]
+    
+    
+    var darkColors = ["pageCount": NSColor(red: 14, green: 14, blue: 14, alpha: 0)]
     var dark = true
     
     
@@ -142,8 +145,11 @@ class ViewController: NSViewController {
         label.isBezeled = false
         label.isEditable = false
         label.sizeToFit()
+//        print(darkColors["pageCount"], "hii")
+//        label.backgroundColor = darkColors["pageCount"]!
+        label.backgroundColor = NSColor(red: 0.07, green: 0.07, blue: 0.07, alpha: 1)
         
-        label.backgroundColor = NSColor(red: 14, green: 14, blue: 14, alpha: 0)
+            
         label.drawsBackground = true
         view.addSubview(label)
         
