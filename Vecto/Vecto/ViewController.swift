@@ -11,6 +11,7 @@ import PDFKit
 class ViewController: NSViewController {
     let pdfView = PDFView()
 //    let pageView = NSTextView()
+    let label = NSTextField()
     var prefix = 0
     var prevChar = ""
     let darkFilters = [
@@ -32,7 +33,15 @@ class ViewController: NSViewController {
 
     ]
     var dark = true
+    
+    
+    
+    
+   
+//    item = "p"
+    
     override func keyDown(with event: NSEvent) {
+        
 //        let curPage = pdfView.currentPage?.label ?? "0"
 //        print(curPage)
 //            + "/" + String(pdfView.document!.pageCount)
@@ -50,6 +59,7 @@ class ViewController: NSViewController {
             }
             
         case [] where event.characters == "g":
+            
             if prevChar == "g" {
                 pdfView.scrollToBeginningOfDocument(pdfView)
                 for _ in 0...prefix {
@@ -91,6 +101,7 @@ class ViewController: NSViewController {
         default:
             break
         }
+        refreshPageCount()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,14 +131,19 @@ class ViewController: NSViewController {
         
 //        pageView.insertText("here", replacementRange: NSMakeRange(0, 100))
         
-        let label = NSTextField()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//        label.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        
         label.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 44))
-        label.stringValue = "My awesome label"
-        label.backgroundColor = .white
+        label.stringValue = "Loading..."
+//        label.backgroundColor = .white
         label.isBezeled = false
         label.isEditable = false
         label.sizeToFit()
-        label.backgroundColor = .red
+        
+        label.backgroundColor = NSColor(red: 14, green: 14, blue: 14, alpha: 0)
         label.drawsBackground = true
         view.addSubview(label)
         
@@ -139,9 +155,31 @@ class ViewController: NSViewController {
             pdfView.document = document
         }
         refreshView()
+        refreshPageCount()
+//        var observer:NSKeyValueObservation?
+//        // then assign the return value of "observe" to it
+//        observer = pdfView.currentPage?.observe(\.label, changeHandler: { (label, change) in
+//            // text has changed,
+//            print("yes")
+//            self.refreshPageCount()
+//        })
 
         // Do any additional setup after loading the view.
+//        var pageChange = &pdfView.currentPage!.label!{
+//            didSet { //called when item changes
+//                print("changed")
+//            }
+//            willSet {
+//                print("about to change")
+//            }
+//        }
+//        pageTrig = &pdfView.currentPage!.label!
     }
+    var pageTrig = "0"
+    
+    
+    
+    
     func refreshView()
     {
         if dark == true {
@@ -150,12 +188,25 @@ class ViewController: NSViewController {
             pdfView.contentFilters = lightFilters
         }
     }
+    
+    func refreshPageCount() {
+        let curPage = pdfView.currentPage?.label ?? "0"
+        label.stringValue = String(curPage) + "/" + String(pdfView.document!.pageCount)
+//        pdfView.change
+    }
 
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }
     }
+    
+//    NotificationCenter.default.addObserver(self, selector: #selector(handlePageChange(notification:)), name: Notification.Name.PDFViewPageChanged, object: nil)
+
+//    @objc private func handlePageChange(notification: Notification)
+//    {
+//        print("Page changed")
+//    }
 
 
 }
