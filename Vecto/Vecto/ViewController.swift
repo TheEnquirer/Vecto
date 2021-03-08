@@ -37,7 +37,7 @@ class ViewController: NSViewController {
     var darkColors =
         [
             "pageCount": NSColor(red: 0.07, green: 0.07, blue: 0.07, alpha: 1),
-            "countText": .lightGray
+            "countText": .white
         ]
     
     var lightColors =
@@ -105,6 +105,10 @@ class ViewController: NSViewController {
             dark.toggle()
             refreshView()
             
+        case [.command, .shift] where event.characters == "h":
+            label.isHidden.toggle()
+//            refreshView()
+            
         case [] where event.keyCode == 53:
             prefix = 0
             prevChar = ""
@@ -166,7 +170,7 @@ class ViewController: NSViewController {
         label.backgroundColor = darkColors["pageCount"]!
 //        label.backgroundColor = NSColor(red: 0.07, green: 0.07, blue: 0.07, alpha: 1)
         
-            
+        
         label.drawsBackground = true
         view.addSubview(label)
         
@@ -215,6 +219,7 @@ class ViewController: NSViewController {
             label.textColor = lightColors["countText"]!
         }
     }
+    
     
     func refreshPageCount() {
         let curPage = pdfView.currentPage?.label ?? "0"
