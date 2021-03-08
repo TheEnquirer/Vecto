@@ -34,7 +34,19 @@ class ViewController: NSViewController {
     ]
     
     
-    var darkColors = ["pageCount": NSColor(red: 14, green: 14, blue: 14, alpha: 0)]
+    var darkColors =
+        [
+            "pageCount": NSColor(red: 0.07, green: 0.07, blue: 0.07, alpha: 1),
+            "countText": .lightGray
+        ]
+    
+    var lightColors =
+        [
+            "pageCount": NSColor(red: 0.89, green: 0.89, blue: 0.89, alpha: 1),
+            "countText": .darkGray
+        ]
+    
+    
     var dark = true
     
     
@@ -143,11 +155,16 @@ class ViewController: NSViewController {
         label.stringValue = "Loading..."
 //        label.backgroundColor = .white
         label.isBezeled = false
+        label.textColor = darkColors["countText"]!
         label.isEditable = false
         label.sizeToFit()
+        let shadow = NSShadow()
+        shadow.shadowColor = nil
+        shadow.shadowBlurRadius = 0
+        label.shadow = shadow
 //        print(darkColors["pageCount"], "hii")
-//        label.backgroundColor = darkColors["pageCount"]!
-        label.backgroundColor = NSColor(red: 0.07, green: 0.07, blue: 0.07, alpha: 1)
+        label.backgroundColor = darkColors["pageCount"]!
+//        label.backgroundColor = NSColor(red: 0.07, green: 0.07, blue: 0.07, alpha: 1)
         
             
         label.drawsBackground = true
@@ -190,8 +207,12 @@ class ViewController: NSViewController {
     {
         if dark == true {
             pdfView.contentFilters = darkFilters
+            label.backgroundColor = darkColors["pageCount"]!
+            label.textColor = darkColors["countText"]!
         } else {
             pdfView.contentFilters = lightFilters
+            label.backgroundColor = lightColors["pageCount"]!
+            label.textColor = lightColors["countText"]!
         }
     }
     
