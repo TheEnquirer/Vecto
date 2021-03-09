@@ -16,6 +16,7 @@ class ViewController: NSViewController {
     
     let pdfView = PDFView()
     let label = NSTextField()
+    let searcher = NSTextField()
     var prefix = 0
     var prevChar = ""
     var dark = true
@@ -188,13 +189,39 @@ class ViewController: NSViewController {
         label.drawsBackground = true
         view.addSubview(label)
         
-        guard let path = Bundle.main.url(forResource: "here3", withExtension: "pdf") else { return }
-//        let path = URL(string: "~/Desktop/here.pdf")!
+        
+        /*##########################*/
+        /*         searcher         */
+        /*##########################*/
+        
+        view.addSubview(searcher)
+        searcher.translatesAutoresizingMaskIntoConstraints = false
+        
+//        searcher.leadingAnchor.constraint(equalTo: pdfView.leadingAnchor).isActive = true
+//        searcher.trailingAnchor.constraint(equalTo: pdfView.leadingAnchor).isActive = true
+        searcher.leftAnchor.constraint(equalTo: pdfView.rightAnchor).isActive = true
+//        searcher.trailingAnchor.constraint(equalTo: pdfView.leadingAnchor).isActive = true
 
+
+
+        
+        searcher.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 44))
+        searcher.stringValue = "Loading..."
+        searcher.isBezeled = false
+        searcher.textColor = darkColors["countText"]!
+        searcher.isEditable = true
+        searcher.sizeToFit()
+        searcher.shadow = shadow
+        searcher.backgroundColor = darkColors["pageCount"]!
+        searcher.drawsBackground = true
+        
+        
         /*#######################*/
         /*         files         */
         /*#######################*/
         
+        guard let path = Bundle.main.url(forResource: "here3", withExtension: "pdf") else { return }
+//        let path = URL(string: "~/Desktop/here.pdf")!
         if let document = PDFDocument(url: path) {
             pdfView.document = document
         }
