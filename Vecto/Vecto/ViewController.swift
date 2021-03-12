@@ -56,6 +56,10 @@ class ViewController: NSViewController {
    
     
     override func keyDown(with event: NSEvent) {
+        print(view.frame.size.width)
+//        searcher.leadingAnchor.constraint(equalTo: pdfView.leadingAnchor, constant: view.frame.size.width).isActive = true
+
+
         
         switch event.modifierFlags.intersection(.deviceIndependentFlagsMask) {
         
@@ -199,7 +203,11 @@ class ViewController: NSViewController {
         
 //        searcher.leadingAnchor.constraint(equalTo: pdfView.leadingAnchor).isActive = true
 //        searcher.trailingAnchor.constraint(equalTo: pdfView.leadingAnchor).isActive = true
-        searcher.leftAnchor.constraint(equalTo: pdfView.rightAnchor).isActive = true
+//        searcher.trailingAnchor.constraint(equalTo: pdfView.trailingAnchor).isActive = true
+        searcher.topAnchor.constraint(equalTo: pdfView.topAnchor).isActive = true
+        searcher.leadingAnchor.constraint(equalTo: pdfView.leadingAnchor, constant: view.frame.size.width).isActive = true
+
+
 //        searcher.trailingAnchor.constraint(equalTo: pdfView.leadingAnchor).isActive = true
 
 
