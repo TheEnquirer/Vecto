@@ -6,18 +6,28 @@ Super simple pdf viewer. Not for annotations. Just for viewing.
 
 ### Features
 
-- View the pdf
+- View the pdf : done
 
-- Copy from the pdf
+- Copy from the pdf : done
 
 ---
 
-- Dark theme (invert colors?)
+- Dark theme and Light theme : done
 
-- J/K scrolling
+- Vim-like keybinds: 
+  -  J/K scrolling : done
+  -  H and L : done
+  -  gg, G : done
+  -  prefix : done
+  -  prefix gg : WIP
+  -  / : WIP
 
-- Frameless window
+- Frameless window : done
 
-- Page number displayer
+- Page number displayer : done
+
+- Open files 
+
+- Multiple windows
 
 And that's it! Begone, bloat!
