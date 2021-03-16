@@ -56,7 +56,7 @@ class ViewController: NSViewController {
    
     
     override func keyDown(with event: NSEvent) {
-        print(view.frame.size.width)
+//        print(view.frame.size.width)
 //        searcher.leadingAnchor.constraint(equalTo: pdfView.leadingAnchor, constant: view.frame.size.width).isActive = true
 
 
@@ -282,15 +282,21 @@ class ViewController: NSViewController {
     
     func handleNext(){
         if inMatches >= matchLen { inMatches = 0 } else { inMatches += 1 }
-        if matchLen > 0 { pdfView.go(to: matches[inMatches]) } else {print("nogud")}
-        pdfView.setCurrentSelection(matches[inMatches], animate: true)
-
+        if matchLen > 0 { searchnavHelper() } else {print("nogud")}
     }
     
     func handlePrev(){
         if inMatches <= 0 { inMatches = matchLen } else { inMatches -= 1 }
-        if matchLen > 0 { pdfView.go(to: matches[inMatches]) } else {print("nogud")}
+        if matchLen > 0 { searchnavHelper() } else {print("nogud")}
 //        pdfView.selectLine(matches[inMatches])
+    }
+    
+    func searchnavHelper(){
+        pdfView.go(to: matches[inMatches])
+        pdfView.setCurrentSelection(matches[inMatches], animate: true)
+        for _ in 1...16  {
+            pdfView.scrollLineDown(pdfView)
+        }
     }
     
         /*############################*/
