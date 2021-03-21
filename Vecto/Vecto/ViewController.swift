@@ -282,6 +282,9 @@ class ViewController: NSViewController {
         
         NotificationCenter.default.addObserver (self, selector: #selector(handleEdit), name: NSText.didChangeNotification, object: nil)
         
+        NotificationCenter.default.addObserver (self, selector: #selector(handleSubmit), name: NSText.didEndEditingNotification, object: nil)
+
+        
         
 //        NotificationCenter.default.addObserver (self, selector: #selector(handleSearchEnd), name: Notification.Name.s, object: nil)
         
@@ -309,8 +312,13 @@ class ViewController: NSViewController {
         print(searcher.stringValue)
     }
     
+    @objc func handleSubmit(_ notification: NSNotification){
+//        print(notification.object)
+//        print(searcher.stringValue)
+        print("here")
+    }
     
-    
+
     @objc func handleSearch(_ notification: NSNotification){
         let page = notification.userInfo!["PDFDocumentFoundSelection"]! as! PDFSelection
         matches.append(page)
