@@ -86,9 +86,14 @@ class ViewController: NSViewController {
             if prevChar == "g" {
                 pdfView.scrollToBeginningOfDocument(pdfView)
                 for _ in 0...prefix {
-                    pdfView.scrollPageUp(pdfView)
+                    pdfView.goToNextPage(pdfView)
                 }
-                pdfView.scrollPageDown(pdfView)
+                pdfView.goToPreviousPage(pdfView)
+                pdfView.goToPreviousPage(pdfView)
+
+                
+                //TODO: lmao
+                
                 prefix = 0
                 prevChar = ""
             } else {
