@@ -155,6 +155,16 @@ class ViewController: NSViewController {
     /*            main            */
     /*############################*/
     
+    
+    
+//    override func textDidChange(_ notification: Notification) {
+//        if let textField = notification.object as? NSTextField {
+//            print("her")
+//        }
+//    }
+//
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -236,6 +246,9 @@ class ViewController: NSViewController {
         searcher.backgroundColor = darkColors["pageCount"]!
         searcher.drawsBackground = true
         
+//        searcher.delegate = self
+        
+        
 //        searcher.didChange
         
         /*#######################*/
@@ -267,11 +280,21 @@ class ViewController: NSViewController {
         
         NotificationCenter.default.addObserver (self, selector: #selector(handleSearchEnd), name: Notification.Name.PDFDocumentDidEndFind, object: nil)
         
+        NotificationCenter.default.addObserver (self, selector: #selector(handleEdit), name: NSText.didChangeNotification, object: nil)
+        
+        
+//        NotificationCenter.default.addObserver (self, selector: #selector(handleSearchEnd), name: Notification.Name.s, object: nil)
+        
     }
+    
+    
+    
     
     /*#################################*/
     /*            handelers            */
     /*#################################*/
+    
+    
     
         /*########################*/
         /*         search         */
@@ -280,6 +303,14 @@ class ViewController: NSViewController {
     var matches = [PDFSelection]()
     var inMatches = 0
     var matchLen = -1
+    
+    @objc func handleEdit(_ notification: NSNotification){
+//        print(notification.object)
+        print(searcher.stringValue)
+    }
+    
+    
+    
     @objc func handleSearch(_ notification: NSNotification){
         let page = notification.userInfo!["PDFDocumentFoundSelection"]! as! PDFSelection
         matches.append(page)
@@ -339,4 +370,9 @@ class ViewController: NSViewController {
         let curPage = pdfView.currentPage?.label ?? "0"
         label.stringValue = String(curPage) + "/" + String(pdfView.document!.pageCount)
     }
+    
+    
+    
 }
+
+
