@@ -17,6 +17,8 @@ class ViewController: NSViewController {
     let pdfView = PDFView()
     let label = NSTextField()
     let searcher = NSTextField()
+//    let searcher = NSTextView()
+
     var prefix = 0
     var prevChar = ""
     var dark = true
@@ -213,16 +215,23 @@ class ViewController: NSViewController {
 
 
         
-        searcher.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 44))
+        searcher.frame = CGRect(origin: .zero, size: CGSize(width: 500, height: 44))
         searcher.stringValue = "Loading..."
+        
+//        searcher.string = "sfs"
+//        searcher.resiz = true
+//        searcher.isScrollEnabled = false
+        
+        
         searcher.isBezeled = false
         searcher.textColor = darkColors["countText"]!
         searcher.isEditable = true
-        searcher.sizeToFit()
+//        searcher.sizeToFit()
         searcher.shadow = shadow
         searcher.backgroundColor = darkColors["pageCount"]!
         searcher.drawsBackground = true
         
+//        searcher.didChange
         
         /*#######################*/
         /*         files         */
@@ -252,6 +261,7 @@ class ViewController: NSViewController {
         NotificationCenter.default.addObserver (self, selector: #selector(handleSearchBegin), name: Notification.Name.PDFDocumentDidBeginFind, object: nil)
         
         NotificationCenter.default.addObserver (self, selector: #selector(handleSearchEnd), name: Notification.Name.PDFDocumentDidEndFind, object: nil)
+        
     }
     
     /*#################################*/
