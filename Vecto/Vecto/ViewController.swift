@@ -127,7 +127,8 @@ class ViewController: NSViewController {
         
         case [] where event.characters == "/":
 //            print("here")
-            _ = pdfView.document?.beginFindString("agitation")
+//            _ = pdfView.document?.beginFindString("agitation")
+            handleSearchShow()
             
         case [] where event.characters == "n":
             handleNext()
@@ -316,8 +317,17 @@ class ViewController: NSViewController {
 //        print(notification.object)
 //        print(searcher.stringValue)
         print("here")
+//        searcher.resignFirstResponder()
+////        pdfView.becomeFirstResponder()
+////        searcher.endEditing(NSText(frame: CGRect(origin: .zero, size: CGSize(width: 500, height: 44))))
+//        searcher.endEditing(NSText(frame: view.frame))
+////        view.becomeFirstResponder()
+//        pdfView.becomeFirstResponder()
+//        print(nextResponder!)
+//        searcher.resignFirstResponder()
+        searcher.resignFirstResponder()
+        super.becomeFirstResponder()
     }
-    
 
     @objc func handleSearch(_ notification: NSNotification){
         let page = notification.userInfo!["PDFDocumentFoundSelection"]! as! PDFSelection
@@ -337,6 +347,11 @@ class ViewController: NSViewController {
     func handleNext(){
         if inMatches >= matchLen { inMatches = 0 } else { inMatches += 1 }
         if matchLen > 0 { searchnavHelper() } else {print("nogud")}
+    }
+    
+    func handleSearchShow() {
+        print("becoming first responder")
+        searcher.becomeFirstResponder()
     }
     
     func handlePrev(){
