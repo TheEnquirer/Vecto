@@ -315,7 +315,7 @@ class ViewController: NSViewController {
 //        print(notification.object)
 //        print(searcher.stringValue)
         pdfView.document?.cancelFindString()
-        _ = pdfView.document?.beginFindString(searcher.stringValue, withOptions: [.caseInsensitive])
+        _ = pdfView.document?.beginFindString(searcher.stringValue, withOptions: [.caseInsensitive, .regularExpression])
         searcher.sizeToFit()
 
     }
