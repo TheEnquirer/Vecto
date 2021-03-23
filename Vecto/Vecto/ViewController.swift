@@ -315,7 +315,7 @@ class ViewController: NSViewController {
 //        print(notification.object)
 //        print(searcher.stringValue)
         pdfView.document?.cancelFindString()
-        _ = pdfView.document?.beginFindString(searcher.stringValue)
+        _ = pdfView.document?.beginFindString(searcher.stringValue, withOptions: [.caseInsensitive])
         searcher.sizeToFit()
 
     }
@@ -327,7 +327,11 @@ class ViewController: NSViewController {
         searcher.isHidden = true
         searcher.isEditable = false
         
-        let matchD = ", " + String(matches.count)
+        var matchD = ""
+        if matches.count > 0 {
+            matchD = ", " + String(matches.count)
+        }
+        
         let curPage = pdfView.currentPage?.label ?? "0"
         label.stringValue = String(curPage) + "/" + String(pdfView.document!.pageCount) + matchD
         
