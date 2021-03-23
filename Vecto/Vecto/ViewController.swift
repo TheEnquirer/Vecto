@@ -313,43 +313,17 @@ class ViewController: NSViewController {
     @objc func handleEdit(_ notification: NSNotification){
 //        print(notification.object)
         print(searcher.stringValue)
+        pdfView.document?.cancelFindString()
+        _ = pdfView.document?.beginFindString(searcher.stringValue)
+
     }
     
     @objc func handleSubmit(_ notification: NSNotification){
-//        print(notification.object)
-//        print(searcher.stringValue)
-        print("here")
-//        searcher.resignFirstResponder()
-////        pdfView.becomeFirstResponder()
-////        searcher.endEditing(NSText(frame: CGRect(origin: .zero, size: CGSize(width: 500, height: 44))))
-//        searcher.endEditing(NSText(frame: view.frame))
-////        view.becomeFirstResponder()
-//        pdfView.becomeFirstResponder()
-//        print(nextResponder!)
-//        searcher.resignFirstResponder()
-        
-        
-//        searcher.resignFirstResponder()
-//        searcher.nextResponder = pdfView
-        //        searcher.isSelectable = false
-//        print(searcher.endEditing(NSText(frame: view.frame)))
-//        super.becomeFirstResponder()
-//        pdfView.becomeFirstResponder()
-        
-//        print(pdfView.acceptsFirstResponder)
-//        searcher.isEnabled = false
-//        pdfView.nextResponder = nil
-//        pdfView.becomeFirstResponder()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//            self.pdfView.becomeFirstResponder()
-//            print("hihi")
-//        }
-        
-
-       
-
-
-        
+        // JUST PRESS TAB.
+        print("submitting!")
+//        searcher.isEditable
+        searcher.isHidden = true
+        searcher.isEditable = false
         
     }
 
@@ -375,6 +349,8 @@ class ViewController: NSViewController {
     
     func handleSearchShow() {
         print("becoming first responder")
+        searcher.isHidden = false
+        searcher.isEditable = true
         searcher.becomeFirstResponder()
         
     }
