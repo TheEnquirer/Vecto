@@ -327,13 +327,7 @@ class ViewController: NSViewController {
         searcher.isHidden = true
         searcher.isEditable = false
         
-        var matchD = ""
-        if matches.count > 0 {
-            matchD = ", " + String(matches.count)
-        }
-        
-        let curPage = pdfView.currentPage?.label ?? "0"
-        label.stringValue = String(curPage) + "/" + String(pdfView.document!.pageCount) + matchD
+        refreshPageCount()
         
     }
 
@@ -413,8 +407,13 @@ class ViewController: NSViewController {
     }
     
     func refreshPageCount() {
+        var matchD = ""
+        if matches.count > 0 {
+            matchD = ", " + String(matches.count)
+        }
+        
         let curPage = pdfView.currentPage?.label ?? "0"
-        label.stringValue = String(curPage) + "/" + String(pdfView.document!.pageCount) + ", " + String(matches.count)
+        label.stringValue = String(curPage) + "/" + String(pdfView.document!.pageCount) + matchD
     }
     
     
