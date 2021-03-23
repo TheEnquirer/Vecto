@@ -115,7 +115,7 @@ class ViewController: NSViewController {
                 pdfView.scrollPageDown(pdfView)
                 prefix = 0
             }
-        case [.command, .shift] where event.characters == "l":
+        case [.option, .shift] where event.characters == "Ò":
             dark.toggle()
             refreshView()
             
@@ -232,8 +232,8 @@ class ViewController: NSViewController {
 
 
         
-        searcher.frame = CGRect(origin: .zero, size: CGSize(width: 500, height: 44))
-        searcher.stringValue = "Loading..."
+        searcher.frame = CGRect(origin: .zero, size: CGSize(width: 150, height: 44))
+        searcher.stringValue = "Search..."
         
 //        searcher.string = "sfs"
 //        searcher.resiz = true
@@ -243,7 +243,8 @@ class ViewController: NSViewController {
         searcher.isBezeled = false
         searcher.textColor = darkColors["countText"]!
         searcher.isEditable = true
-//        searcher.sizeToFit()
+        searcher.isHidden = true
+        searcher.sizeToFit()
         searcher.shadow = shadow
         searcher.backgroundColor = darkColors["pageCount"]!
         searcher.drawsBackground = true
@@ -312,9 +313,10 @@ class ViewController: NSViewController {
     
     @objc func handleEdit(_ notification: NSNotification){
 //        print(notification.object)
-        print(searcher.stringValue)
+//        print(searcher.stringValue)
         pdfView.document?.cancelFindString()
         _ = pdfView.document?.beginFindString(searcher.stringValue)
+        searcher.sizeToFit()
 
     }
     
@@ -381,12 +383,21 @@ class ViewController: NSViewController {
     {
         if dark == true {
             pdfView.contentFilters = darkFilters
+            
             label.backgroundColor = darkColors["pageCount"]!
             label.textColor = darkColors["countText"]!
+            
+            searcher.backgroundColor = darkColors["pageCount"]!
+            searcher.textColor = darkColors["countText"]!
+            
         } else {
             pdfView.contentFilters = lightFilters
+            
             label.backgroundColor = lightColors["pageCount"]!
             label.textColor = lightColors["countText"]!
+            
+            searcher.backgroundColor = lightColors["pageCount"]!
+            searcher.textColor = lightColors["countText"]!
         }
     }
     
