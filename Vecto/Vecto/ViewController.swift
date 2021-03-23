@@ -7,6 +7,7 @@
 
 import Cocoa
 import PDFKit
+//import Foundation
 
 class ViewController: NSViewController {
     
@@ -288,7 +289,6 @@ class ViewController: NSViewController {
         
         
 //        NotificationCenter.default.addObserver (self, selector: #selector(handleSearchEnd), name: Notification.Name.s, object: nil)
-        
     }
     
     
@@ -308,6 +308,8 @@ class ViewController: NSViewController {
     var inMatches = 0
     var matchLen = -1
     
+   
+    
     @objc func handleEdit(_ notification: NSNotification){
 //        print(notification.object)
         print(searcher.stringValue)
@@ -325,8 +327,30 @@ class ViewController: NSViewController {
 //        pdfView.becomeFirstResponder()
 //        print(nextResponder!)
 //        searcher.resignFirstResponder()
-        searcher.resignFirstResponder()
-        super.becomeFirstResponder()
+        
+        
+//        searcher.resignFirstResponder()
+//        searcher.nextResponder = pdfView
+        //        searcher.isSelectable = false
+//        print(searcher.endEditing(NSText(frame: view.frame)))
+//        super.becomeFirstResponder()
+//        pdfView.becomeFirstResponder()
+        
+//        print(pdfView.acceptsFirstResponder)
+//        searcher.isEnabled = false
+//        pdfView.nextResponder = nil
+//        pdfView.becomeFirstResponder()
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//            self.pdfView.becomeFirstResponder()
+//            print("hihi")
+//        }
+        
+
+       
+
+
+        
+        
     }
 
     @objc func handleSearch(_ notification: NSNotification){
@@ -352,6 +376,7 @@ class ViewController: NSViewController {
     func handleSearchShow() {
         print("becoming first responder")
         searcher.becomeFirstResponder()
+        
     }
     
     func handlePrev(){
@@ -397,5 +422,4 @@ class ViewController: NSViewController {
     
     
 }
-
 
