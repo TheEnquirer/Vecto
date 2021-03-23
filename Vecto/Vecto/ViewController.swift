@@ -127,8 +127,8 @@ class ViewController: NSViewController {
         /*########################*/
         
         case [] where event.characters == "/":
-//            print("here")
-//            _ = pdfView.document?.beginFindString("agitation")
+            handleSearchShow()
+        case [.command ] where event.characters == "f":
             handleSearchShow()
             
         case [] where event.characters == "n":
@@ -327,11 +327,16 @@ class ViewController: NSViewController {
         searcher.isHidden = true
         searcher.isEditable = false
         
+        let matchD = ", " + String(matches.count)
+        let curPage = pdfView.currentPage?.label ?? "0"
+        label.stringValue = String(curPage) + "/" + String(pdfView.document!.pageCount) + matchD
+        
     }
 
     @objc func handleSearch(_ notification: NSNotification){
         let page = notification.userInfo!["PDFDocumentFoundSelection"]! as! PDFSelection
         matches.append(page)
+//        print(matches.count)
     }
     
     @objc func handleSearchBegin(){
@@ -355,6 +360,8 @@ class ViewController: NSViewController {
         searcher.isEditable = true
         searcher.becomeFirstResponder()
         
+        let curPage = pdfView.currentPage?.label ?? "0"
+        label.stringValue = String(curPage) + "/" + String(pdfView.document!.pageCount)
     }
     
     func handlePrev(){
@@ -403,7 +410,7 @@ class ViewController: NSViewController {
     
     func refreshPageCount() {
         let curPage = pdfView.currentPage?.label ?? "0"
-        label.stringValue = String(curPage) + "/" + String(pdfView.document!.pageCount)
+        label.stringValue = String(curPage) + "/" + String(pdfView.document!.pageCount) + ", " + String(matches.count)
     }
     
     
