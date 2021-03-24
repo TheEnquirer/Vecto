@@ -61,10 +61,6 @@ class ViewController: NSViewController {
    
     
     override func keyDown(with event: NSEvent) {
-//        print(view.frame.size.width)
-//        searcher.leadingAnchor.constraint(equalTo: pdfView.leadingAnchor, constant: view.frame.size.width).isActive = true
-        
-
         
         switch event.modifierFlags.intersection(.deviceIndependentFlagsMask) {
         
@@ -122,11 +118,13 @@ class ViewController: NSViewController {
             }
             
         case [.control ] where event.characters == "\u{0F}":
-            if actionList.count > 0 {
-                let page = actionList.popLast()
-                pdfView.go(to: page!)
+            for _ in 1...1 + max(0, prefix-1) {
+                if actionList.count > 0 {
+                    let page = actionList.popLast()
+                    pdfView.go(to: page!)
+                }
             }
-            print(actionList, "wheee")
+            prefix = 0
             
         case [.option, .shift] where event.characters == "Ò":
             dark.toggle()
@@ -316,8 +314,6 @@ class ViewController: NSViewController {
    
     
     @objc func handleEdit(_ notification: NSNotification){
-//        print(notification.object)
-//        print(searcher.stringValue)
         pdfView.document?.cancelFindString()
         _ = pdfView.document?.beginFindString(searcher.stringValue, withOptions: [.caseInsensitive, .regularExpression])
         searcher.sizeToFit()
@@ -326,8 +322,7 @@ class ViewController: NSViewController {
     
     @objc func handleSubmit(_ notification: NSNotification){
         // JUST PRESS TAB.
-        print("submitting!")
-//        searcher.isEditable
+
         searcher.isHidden = true
         searcher.isEditable = false
         
@@ -338,7 +333,6 @@ class ViewController: NSViewController {
     @objc func handleSearch(_ notification: NSNotification){
         let page = notification.userInfo!["PDFDocumentFoundSelection"]! as! PDFSelection
         matches.append(page)
-//        print(matches.count)
     }
     
     @objc func handleSearchBegin(){
@@ -348,7 +342,6 @@ class ViewController: NSViewController {
     
     @objc func handleSearchEnd(){
         matchLen = matches.count - 1
-        print("end")
     }
     
     func handleNext(){
@@ -357,7 +350,6 @@ class ViewController: NSViewController {
     }
     
     func handleSearchShow() {
-        print("becoming first responder")
         searcher.isHidden = false
         searcher.isEditable = true
         searcher.becomeFirstResponder()
