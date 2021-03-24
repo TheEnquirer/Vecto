@@ -19,15 +19,18 @@ Super simple pdf viewer. Not for annotations. Just for viewing.
   -  H and L : done
   -  gg, G : done
   -  prefix : done
-  -  prefix gg : WIP
-  -  / : WIP
+  -  prefix gg : done
+  -  / : done
+  -  C - o : done
+
+- Clean mode, Cmd - h : done
 
 - Frameless window : done
 
 - Page number displayer : done
 
-- Open files 
+- Open files : @zbuster05 cmon man
 
-- Multiple windows
+- Multiple windows : @zbuster05 ...
 
 And that's it! Begone, bloat!
