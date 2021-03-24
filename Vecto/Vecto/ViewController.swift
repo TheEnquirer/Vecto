@@ -24,6 +24,8 @@ class ViewController: NSViewController {
     var prevChar = ""
     var dark = true
     
+    var actionList = [PDFPage]()
+    
     /*##############################*/
     /*            colors            */
     /*##############################*/
@@ -85,6 +87,8 @@ class ViewController: NSViewController {
         case [] where event.characters == "g":
             
             if prevChar == "g" {
+                actionList.append(pdfView.currentPage!)
+                
                 pdfView.scrollToBeginningOfDocument(pdfView)
                 for _ in 0...prefix {
                     pdfView.goToNextPage(pdfView)
@@ -102,6 +106,7 @@ class ViewController: NSViewController {
             }
             
         case [.shift ] where event.characters == "G":
+            actionList.append(pdfView.currentPage!)
             pdfView.scrollToEndOfDocument(pdfView)
             
         case [.shift ] where event.characters == "L":
@@ -115,6 +120,14 @@ class ViewController: NSViewController {
                 pdfView.scrollPageDown(pdfView)
                 prefix = 0
             }
+            
+        case [.control ] where event.characters == "\u{0F}":
+            if actionList.count > 0 {
+                let page = actionList.popLast()
+                pdfView.go(to: page!)
+            }
+            print(actionList, "wheee")
+            
         case [.option, .shift] where event.characters == "Ò":
             dark.toggle()
             refreshView()
@@ -126,15 +139,15 @@ class ViewController: NSViewController {
         /*         search         */
         /*########################*/
         
-        case [] where event.characters == "/":
-            handleSearchShow()
-        case [.command ] where event.characters == "f":
+        case [] where event.characters == "/", [.command ] where event.characters == "f":
             handleSearchShow()
             
         case [] where event.characters == "n":
+            actionList.append(pdfView.currentPage!)
             handleNext()
             
         case [.shift] where event.characters == "N":
+            actionList.append(pdfView.currentPage!)
             handlePrev()
             
         /*########################*/
@@ -156,15 +169,6 @@ class ViewController: NSViewController {
     /*############################*/
     /*            main            */
     /*############################*/
-    
-    
-    
-//    override func textDidChange(_ notification: Notification) {
-//        if let textField = notification.object as? NSTextField {
-//            print("her")
-//        }
-//    }
-//
     
     
     override func viewDidLoad() {
