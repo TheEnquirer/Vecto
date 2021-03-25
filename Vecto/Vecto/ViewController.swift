@@ -12,7 +12,7 @@ import PDFKit
 class ViewController: NSViewController {
     
     /*##################################*/
-    /*            initialize            */
+    /*            MARK: - initialize    */
     /*##################################*/
     
     var test = ViewController()
@@ -30,7 +30,7 @@ class ViewController: NSViewController {
     var actionList = [PDFPage]()
     
     /*##############################*/
-    /*            colors            */
+    /*            MARK: - colors    */
     /*##############################*/
     
     let darkFilters = [
@@ -137,7 +137,7 @@ class ViewController: NSViewController {
             label.isHidden.toggle()
         
         /*########################*/
-        /*         search         */
+        /*         MARK: - search */
         /*########################*/
         
         case [] where event.characters == "/", [.command ] where event.characters == "f":
@@ -152,7 +152,7 @@ class ViewController: NSViewController {
             handlePrev()
             
         /*########################*/
-        /*         helper         */
+        /*         MARK: - helper */
         /*########################*/
         
         case [] where event.keyCode == 53:
@@ -168,7 +168,7 @@ class ViewController: NSViewController {
     }
     
     /*############################*/
-    /*            main            */
+    /*            MARK: - main    */
     /*############################*/
     
     
@@ -176,7 +176,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         /*#########################*/
-        /*         pdfView         */
+        /*         MARK: - pdfView */
         /*#########################*/
         
         pdfView.translatesAutoresizingMaskIntoConstraints = false
@@ -198,7 +198,7 @@ class ViewController: NSViewController {
         pdfView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         /*#######################*/
-        /*         label         */
+        /*         MARK: - label */
         /*#######################*/
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -219,7 +219,7 @@ class ViewController: NSViewController {
         
         
         /*##########################*/
-        /*         searcher         */
+        /*         MARK: - searcher */
         /*##########################*/
         
         view.addSubview(searcher)
@@ -260,7 +260,7 @@ class ViewController: NSViewController {
 //        searcher.didChange
         
         /*#######################*/
-        /*         files         */
+        /*         MARK: - files */
         /*#######################*/
         
         guard let path = Bundle.main.url(forResource: "here3", withExtension: "pdf") else { return }
@@ -270,14 +270,14 @@ class ViewController: NSViewController {
         }
         
         /*##########################*/
-        /*         starters         */
+        /*         MARK: - starters */
         /*##########################*/
         
         refreshView()
         refreshPageCount()
         
         /*########################*/
-        /*         notifs         */
+        /*         MARK: - notifs */
         /*########################*/
         
         NotificationCenter.default.addObserver (self, selector: #selector(handlePageChange), name: Notification.Name.PDFViewPageChanged, object: nil)
@@ -301,13 +301,13 @@ class ViewController: NSViewController {
     
     
     /*#################################*/
-    /*            handelers            */
+    /*            MARK: - handelers    */
     /*#################################*/
     
     
     
         /*########################*/
-        /*         search         */
+        /*         MARK: - search */
         /*########################*/
     
     var matches = [PDFSelection]()
@@ -376,7 +376,7 @@ class ViewController: NSViewController {
     }
     
         /*############################*/
-        /*         refreshers         */
+        /*         MARK: - refreshers */
         /*############################*/
     
     @objc func handlePageChange() {
