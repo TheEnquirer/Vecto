@@ -19,6 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         openPanel.runModal()
     }
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        
         // Insert code here to initialize your application
     }
 
@@ -29,3 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 }
 
+//let storyboard = NSStoryboard(name: "Main", bundle: nil)
+////let vc1 = storyboard.instantiateViewControllerWithIdentifier("WebViewController")
+////let vc2 = storyboard.instantiateViewControllerWithIdentifier("WebViewController")
+//let tester = storyboard.instantiateController(identifier: "test")

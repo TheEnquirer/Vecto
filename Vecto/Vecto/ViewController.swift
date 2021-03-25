@@ -15,10 +15,13 @@ class ViewController: NSViewController {
     /*            initialize            */
     /*##################################*/
     
+    var test = ViewController()
+
+    
+    
     let pdfView = PDFView()
     let label = NSTextField()
     let searcher = NSTextField()
-//    let searcher = NSTextView()
 
     var prefix = 0
     var prevChar = ""
