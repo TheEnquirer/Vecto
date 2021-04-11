@@ -15,7 +15,7 @@ class ViewController: NSViewController {
     /*        MARK: - initialize        */
     /*##################################*/
     
-    var test = ViewController()
+    //var test = ViewController()
 
     
     
