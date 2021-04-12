@@ -41,14 +41,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func createWindowPlease() -> NSWindowController {
         let window = NSWindow()
         window.styleMask = NSWindow.StyleMask(rawValue: 0xf)
-        //window.backingType = .buffered
+//        window.backingType = .buffered
         window.contentViewController = ViewController()
         window.setFrame(NSRect(x: 700, y: 200, width: 500, height: 500), display: false)
         window.titleVisibility = NSWindow.TitleVisibility.hidden;
+       
         window.titlebarAppearsTransparent = true;
+//        window.styleMask.insert(.fullSizeContentView)
+        window.styleMask.insert(.fullSizeContentView)
+
+
        // window.styleMask = NSWindow.StyleMask(rawValue: NSFullSizeContentViewWindowMask.rawValue);
         //window.titleVisibility = NSWindow.titleHidden;
-        window.titlebarAppearsTransparent = true;
+//        window.titlebarAppearsTransparent = true;
         //window.styleMask = NSWindow.StyleMask(rawValue: NSFullSizeContentViewWindowMask.rawValue);
         windowController = NSWindowController()
         windowController.contentViewController = window.contentViewController
@@ -82,7 +87,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         openPanel.canChooseDirectories = false
         openPanel.canCreateDirectories = false
         openPanel.canChooseFiles = true
-        openPanel.runModal()
+//        openPanel.runModal()
         // Insert code here to initialize your application
     }
 
