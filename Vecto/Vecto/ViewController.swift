@@ -184,14 +184,15 @@ class ViewController: NSViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    convenience init(test: Double) {
+    convenience init(initialFile: URL) {
         self.init()
+        pdfView.document = PDFDocument(url: initialFile)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func openFile() {
 
         let openPanel = NSOpenPanel()
@@ -201,7 +202,7 @@ class ViewController: NSViewController {
         openPanel.canChooseFiles = true
         openPanel.allowedFileTypes = ["pdf"]
         let i = openPanel.runModal()
-        if(i == NSApplication.ModalResponse.OK){
+        if (i == NSApplication.ModalResponse.OK) {
             print(openPanel.url!)
             path = openPanel.url!
 //            return openPanel.url!
@@ -211,10 +212,10 @@ class ViewController: NSViewController {
                 pdfView.document = document
             }
         } else {
-            if (path == nil) {
-                openFile()
-            }
-        }
+           if (path == nil) {
+               openFile()
+           }
+       }
     }
     
     var path : (URL?) = nil
@@ -317,9 +318,7 @@ class ViewController: NSViewController {
         
 //        guard var path = Bundle.main.url(forResource: "here3", withExtension: "pdf") else { return }
         
-//        let path = URL(string: "~/Desktop/here.pdf")!
-        openFile()
-        
+//        let path = URL(string: "~/Desktop/here.pdf")!        
     
         
         /*##########################*/
