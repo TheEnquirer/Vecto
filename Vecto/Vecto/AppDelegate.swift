@@ -48,8 +48,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let window = NSWindow()
         window.styleMask = NSWindow.StyleMask(rawValue: 0xf)
 //        window.backingType = .buffered
-        window.contentViewController = ViewController()
-        window.setFrame(NSRect(x: 700, y: 200, width: 500, height: 500), display: false)
+        window.contentViewController = ViewController(test: 2.0)
+        window.setFrame(NSRect(x: 0, y: 0, width: 500, height: 500), display: false)
         window.titleVisibility = NSWindow.TitleVisibility.hidden;
        
         window.titlebarAppearsTransparent = true;

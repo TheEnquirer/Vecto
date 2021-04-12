@@ -6,7 +6,9 @@
 //
 
 import Cocoa
-import PDFKit
+import Quartz.PDFKit
+
+
 //import Foundation
 
 class ViewController: NSViewController {
@@ -176,8 +178,19 @@ class ViewController: NSViewController {
     override func loadView() {
       self.view = NSView()
     }
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
     
+    convenience init(test: Double) {
+        self.init()
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     func openFile() -> (URL?){
         let openPanel = NSOpenPanel()
         openPanel.allowsMultipleSelection = false
