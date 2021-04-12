@@ -29,6 +29,7 @@ class ViewController: NSViewController {
     var prevChar = ""
     var dark = true
     
+        
     var actionList = [PDFPage]()
     
     /*##############################*/
@@ -191,7 +192,8 @@ class ViewController: NSViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func openFile() -> (URL?){
+    func openFile() {
+
         let openPanel = NSOpenPanel()
         openPanel.allowsMultipleSelection = false
         openPanel.canChooseDirectories = false
@@ -201,14 +203,23 @@ class ViewController: NSViewController {
         let i = openPanel.runModal()
         if(i == NSApplication.ModalResponse.OK){
             print(openPanel.url!)
-            return openPanel.url!
+            path = openPanel.url!
+//            return openPanel.url!
 //            windows[0]!.window.path = openPanel.url!
 //            path = openPanel.url!
+            if let document = PDFDocument(url: path!) {
+                pdfView.document = document
+            }
+        } else {
+            if (path == nil) {
+                openFile()
+            }
         }
-        return nil
     }
     
-    
+    var path : (URL?) = nil
+//    guard var path = openFile() else { return }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -305,11 +316,11 @@ class ViewController: NSViewController {
         
         
 //        guard var path = Bundle.main.url(forResource: "here3", withExtension: "pdf") else { return }
-        guard var path = openFile() else { return }
+        
 //        let path = URL(string: "~/Desktop/here.pdf")!
-        if let document = PDFDocument(url: path) {
-            pdfView.document = document
-        }
+        openFile()
+        
+    
         
         /*##########################*/
         /*     MARK: - starters     */
