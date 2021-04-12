@@ -154,7 +154,7 @@ class ViewController: NSViewController {
             actionList.append(pdfView.currentPage!)
             handlePrev()
             
-        case [.shift] where event.characters == "O":
+        case [.command] where event.characters == "o":
             openFile()
             
         /*########################*/

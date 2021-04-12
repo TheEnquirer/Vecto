@@ -12,6 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     //var windowController: NSWindowController!
     var windows: [NSWindowController?] = []
 
+
     @IBAction func onClick(_ sender: NSMenuItem) {
         let openPanel = NSOpenPanel()
         openPanel.allowsMultipleSelection = false
