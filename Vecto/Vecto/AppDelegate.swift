@@ -7,21 +7,6 @@
 
 import Cocoa
 
-// TODO move this to another file
-
-
-class MyNewWindow: NSWindowController {
-    /*
-    convenience init() {
-        self.init(windowNibName: "MyNewWindow")
-    }
-    */
-    override func windowDidLoad() {
-        super.windowDidLoad()
-    }
-
-}
-
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     //var windowController: NSWindowController!
@@ -44,11 +29,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //       
 //    }
     
-    func createWindowPlease() -> NSWindowController {
+    func createWindowPlease(filePath: URL) -> NSWindowController {
         let window = NSWindow()
         window.styleMask = NSWindow.StyleMask(rawValue: 0xf)
 //        window.backingType = .buffered
-        window.contentViewController = ViewController(test: 2.0)
+        window.contentViewController = ViewController(initialFile: filePath)
         window.setFrame(NSRect(x: 0, y: 0, width: 500, height: 500), display: false)
         window.titleVisibility = NSWindow.TitleVisibility.hidden;
        
@@ -66,14 +51,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         windowController.window = window
         windowController.showWindow(self)
         
-
         
         return windowController
     }
-
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        windows.append(createWindowPlease())
         
+        let openPanel = NSOpenPanel()
+        openPanel.allowsMultipleSelection = false
+        openPanel.canChooseDirectories = false
+        openPanel.canCreateDirectories = false
+        openPanel.canChooseFiles = true
+        openPanel.allowedFileTypes = ["pdf"]
+        
+        let i = openPanel.runModal()
+        if (i == NSApplication.ModalResponse.OK) {
+            windows.append(createWindowPlease(filePath: openPanel.url!))
+        } else {
+            NSApplication.shared.terminate(self)
+        }
+
 //        window = NSWindow()
 //        window.styleMask = NSWindow.StyleMask(rawValue: 0xf)
 //        window.backingType = .buffered
@@ -86,12 +83,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         /*NewWindowController.contentViewController = window.contentViewController
         NewWindowController.window = window
         NewWindowController.showWindow(nil)*/
-        
+        /*
         let openPanel = NSOpenPanel()
         openPanel.allowsMultipleSelection = false
         openPanel.canChooseDirectories = false
         openPanel.canCreateDirectories = false
-        openPanel.canChooseFiles = true
+        openPanel.canChooseFiles = true*/
 //        openPanel.runModal()
         // Insert code here to initialize your application
     }
