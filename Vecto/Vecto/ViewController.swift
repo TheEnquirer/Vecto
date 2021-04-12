@@ -6,7 +6,7 @@
 //
 
 import Cocoa
-import PDFKit
+import Quartz.PDFKit
 //import Foundation
 
 class ViewController: NSViewController {

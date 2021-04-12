@@ -24,9 +24,7 @@ class MyNewWindow: NSWindowController {
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    let NewWindowController = MyNewWindow()
-    var myName: String = "AppDelegate"
-    var windowController: NSWindowController!
+    //var windowController: NSWindowController!
     var windows: [NSWindowController?] = []
 
     @IBAction func onClick(_ sender: NSMenuItem) {
@@ -55,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //window.titleVisibility = NSWindow.titleHidden;
 //        window.titlebarAppearsTransparent = true;
         //window.styleMask = NSWindow.StyleMask(rawValue: NSFullSizeContentViewWindowMask.rawValue);
-        windowController = NSWindowController()
+        let windowController = NSWindowController()
         windowController.contentViewController = window.contentViewController
         windowController.window = window
         windowController.showWindow(self)
