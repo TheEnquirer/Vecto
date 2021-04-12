@@ -44,10 +44,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //window.backingType = .buffered
         window.contentViewController = ViewController()
         window.setFrame(NSRect(x: 700, y: 200, width: 500, height: 500), display: false)
+        window.titleVisibility = NSWindow.TitleVisibility.hidden;
+        window.titlebarAppearsTransparent = true;
+       // window.styleMask = NSWindow.StyleMask(rawValue: NSFullSizeContentViewWindowMask.rawValue);
+        //window.titleVisibility = NSWindow.titleHidden;
+        window.titlebarAppearsTransparent = true;
+        //window.styleMask = NSWindow.StyleMask(rawValue: NSFullSizeContentViewWindowMask.rawValue);
         windowController = NSWindowController()
         windowController.contentViewController = window.contentViewController
         windowController.window = window
         windowController.showWindow(self)
+        
+
+        
         return windowController
     }
 
