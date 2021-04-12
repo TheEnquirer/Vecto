@@ -27,14 +27,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     //var windowController: NSWindowController!
     var windows: [NSWindowController?] = []
 
-    @IBAction func onClick(_ sender: NSMenuItem) {
-        let openPanel = NSOpenPanel()
-        openPanel.allowsMultipleSelection = false
-        openPanel.canChooseDirectories = false
-        openPanel.canCreateDirectories = false
-        openPanel.canChooseFiles = true
-        openPanel.runModal()
-    }
+//    @IBAction func onClick(_ sender: NSMenuItem) {
+//        let openPanel = NSOpenPanel()
+//        openPanel.allowsMultipleSelection = false
+//        openPanel.canChooseDirectories = false
+//        openPanel.canCreateDirectories = false
+//        openPanel.canChooseFiles = true
+//        openPanel.allowedFileTypes = ["pdf"]
+//        let i = openPanel.runModal()
+//        if(i == NSApplication.ModalResponse.OK){
+//            print(openPanel.url!)
+//            print(sender.parent!)
+//            windows[0]!.window.path = openPanel.url!
+////            path = openPanel.url!
+//        }
+//       
+//    }
     
     func createWindowPlease() -> NSWindowController {
         let window = NSWindow()

@@ -6,7 +6,7 @@
 //
 
 import Cocoa
-import Quartz.PDFKit
+import PDFKit
 //import Foundation
 
 class ViewController: NSViewController {
@@ -151,6 +151,9 @@ class ViewController: NSViewController {
             actionList.append(pdfView.currentPage!)
             handlePrev()
             
+        case [.shift] where event.characters == "O":
+            openFile()
+            
         /*########################*/
         /*     MARK: - helper     */
         /*########################*/
@@ -173,6 +176,25 @@ class ViewController: NSViewController {
     override func loadView() {
       self.view = NSView()
     }
+    
+    
+    func openFile() -> (URL?){
+        let openPanel = NSOpenPanel()
+        openPanel.allowsMultipleSelection = false
+        openPanel.canChooseDirectories = false
+        openPanel.canCreateDirectories = false
+        openPanel.canChooseFiles = true
+        openPanel.allowedFileTypes = ["pdf"]
+        let i = openPanel.runModal()
+        if(i == NSApplication.ModalResponse.OK){
+            print(openPanel.url!)
+            return openPanel.url!
+//            windows[0]!.window.path = openPanel.url!
+//            path = openPanel.url!
+        }
+        return nil
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -265,7 +287,12 @@ class ViewController: NSViewController {
         /*     MARK: - files     */
         /*#######################*/
         
-        guard let path = Bundle.main.url(forResource: "here3", withExtension: "pdf") else { return }
+        
+        
+        
+        
+//        guard var path = Bundle.main.url(forResource: "here3", withExtension: "pdf") else { return }
+        guard var path = openFile() else { return }
 //        let path = URL(string: "~/Desktop/here.pdf")!
         if let document = PDFDocument(url: path) {
             pdfView.document = document
