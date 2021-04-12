@@ -73,7 +73,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         windows.append(createWindowPlease())
-        windows.append(createWindowPlease())
         
 //        window = NSWindow()
 //        window.styleMask = NSWindow.StyleMask(rawValue: 0xf)
