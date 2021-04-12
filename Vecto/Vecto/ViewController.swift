@@ -6,7 +6,7 @@
 //
 
 import Cocoa
-import PDFKit
+import Quartz.PDFKit
 //import Foundation
 
 class ViewController: NSViewController {
@@ -170,7 +170,9 @@ class ViewController: NSViewController {
     /*############################*/
     /*        MARK: - main        */
     /*############################*/
-    
+    override func loadView() {
+      self.view = NSView()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
