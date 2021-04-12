@@ -21,12 +21,13 @@ class MyNewWindow: NSWindowController {
     }
 
 }
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     let NewWindowController = MyNewWindow()
     var myName: String = "AppDelegate"
     var windowController: NSWindowController!
-    var window: NSWindow!
+    var windows: [NSWindowController?] = []
 
     @IBAction func onClick(_ sender: NSMenuItem) {
         let openPanel = NSOpenPanel()
@@ -36,17 +37,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         openPanel.canChooseFiles = true
         openPanel.runModal()
     }
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
-        window = NSWindow()
+    
+    func createWindowPlease() -> NSWindowController {
+        let window = NSWindow()
         window.styleMask = NSWindow.StyleMask(rawValue: 0xf)
-        window.backingType = .buffered
+        //window.backingType = .buffered
         window.contentViewController = ViewController()
         window.setFrame(NSRect(x: 700, y: 200, width: 500, height: 500), display: false)
         windowController = NSWindowController()
         windowController.contentViewController = window.contentViewController
         windowController.window = window
         windowController.showWindow(self)
+        return windowController
+    }
+
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        windows.append(createWindowPlease())
+        windows.append(createWindowPlease())
+        
+//        window = NSWindow()
+//        window.styleMask = NSWindow.StyleMask(rawValue: 0xf)
+//        window.backingType = .buffered
+//        window.contentViewController = ViewController()
+//        window.setFrame(NSRect(x: 700, y: 200, width: 500, height: 500), display: false)
+//        windowController = NSWindowController()
+//        windowController.contentViewController = window.contentViewController
+//        windowController.window = window
+//        windowController.showWindow(self)
         /*NewWindowController.contentViewController = window.contentViewController
         NewWindowController.window = window
         NewWindowController.showWindow(nil)*/
