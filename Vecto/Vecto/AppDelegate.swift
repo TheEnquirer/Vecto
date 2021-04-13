@@ -126,8 +126,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
-
+    
+    func application(_ app: NSApplication, open url: URL) -> Bool {
+        print(url, "woah")
+        return true
+    }
 }
 //let storyboard = NSStoryboard(name: "Main", bundle: nil)
 ////let vc1 = storyboard.instantiateViewControllerWithIdentifier("WebViewController")
