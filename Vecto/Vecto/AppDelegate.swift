@@ -52,7 +52,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         windowController.window = window
         windowController.showWindow(self)
         
-        
         return windowController
     }
     
@@ -104,5 +103,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             windows.append(createWindowPlease(filePath: i))
         }
     }
-
 }

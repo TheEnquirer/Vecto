@@ -386,7 +386,7 @@ class ViewController: NSViewController {
     }
 
     @objc func handleSearch(_ notification: NSNotification){
-        if (notification.object as! PDFDocument == pdfView.document) {
+        if ((notification.object as! PDFDocument) == pdfView.document) {
             let page = notification.userInfo!["PDFDocumentFoundSelection"]! as! PDFSelection
             matches.append(page)
         }
