@@ -373,7 +373,6 @@ class ViewController: NSViewController {
         pdfView.document?.cancelFindString()
         _ = pdfView.document?.beginFindString(searcher.stringValue, withOptions: [.caseInsensitive, .regularExpression])
         searcher.sizeToFit()
-
     }
     
     @objc func handleSubmit(_ notification: NSNotification){
@@ -387,8 +386,10 @@ class ViewController: NSViewController {
     }
 
     @objc func handleSearch(_ notification: NSNotification){
-        let page = notification.userInfo!["PDFDocumentFoundSelection"]! as! PDFSelection
-        matches.append(page)
+        if (notification.object as! PDFDocument == pdfView.document) {
+            let page = notification.userInfo!["PDFDocumentFoundSelection"]! as! PDFSelection
+            matches.append(page)
+        }
     }
     
     @objc func handleSearchBegin(){
@@ -467,10 +468,4 @@ class ViewController: NSViewController {
         let curPage = pdfView.currentPage?.label ?? "0"
         label.stringValue = String(curPage) + "/" + String(pdfView.document!.pageCount) + matchD
     }
-//    
-//    override func viewDidAppear() {
-//        print("apearing")
-//    }
-    
 }
-

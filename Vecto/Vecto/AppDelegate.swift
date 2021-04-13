@@ -71,7 +71,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             } else {
                 NSApplication.shared.terminate(self)
             }
-        }
+        } else { print("launching unatrully") }
 
 //        window = NSWindow()
 //        window.styleMask = NSWindow.StyleMask(rawValue: 0xf)
