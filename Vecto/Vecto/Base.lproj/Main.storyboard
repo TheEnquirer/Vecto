@@ -65,6 +65,11 @@
                                                 <action selector="onClick:" target="Voe-Tx-rLC" id="PRN-VV-n0z"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Duplicate" keyEquivalent="N" id="TOj-8W-57a">
+                                            <connections>
+                                                <action selector="dupOnClick:" target="Voe-Tx-rLC" id="f5x-pb-zJ7"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9"/>
                                         <menuItem title="Open Recent" id="tXI-mr-wws">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -688,7 +693,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-436" y="144"/>
+            <point key="canvasLocation" x="-402" y="348"/>
         </scene>
     </scenes>
 </document>
