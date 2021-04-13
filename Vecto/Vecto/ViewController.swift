@@ -95,9 +95,10 @@ class ViewController: NSViewController {
                 for _ in 0...prefix {
                     pdfView.goToNextPage(pdfView)
                 }
-                pdfView.goToPreviousPage(pdfView)
-                pdfView.goToPreviousPage(pdfView)
-
+                if (prefix < pdfView.document!.pageCount) {
+                    pdfView.goToPreviousPage(pdfView)
+                    pdfView.goToPreviousPage(pdfView)
+                }
                 
                 //TODO: lmao
                 
@@ -466,8 +467,10 @@ class ViewController: NSViewController {
         let curPage = pdfView.currentPage?.label ?? "0"
         label.stringValue = String(curPage) + "/" + String(pdfView.document!.pageCount) + matchD
     }
-    
-    
+//    
+//    override func viewDidAppear() {
+//        print("apearing")
+//    }
     
 }
 
