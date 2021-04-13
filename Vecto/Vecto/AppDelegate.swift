@@ -12,7 +12,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     //var windowController: NSWindowController!
     var windows: [NSWindowController?] = []
 
+    @IBAction func dupOnClick(_ sender: NSMenuItem) {
+        
+        
+        let window = NSWindow()
+        window.styleMask = NSWindow.StyleMask(rawValue: 0xf)
+//        window.backingType = .buffered
+        window.contentViewController = NSApplication.shared.keyWindow?.contentViewController
+        window.setFrame(NSRect(x: 0, y: 0, width: 500, height: 500), display: false)
+        window.titleVisibility = NSWindow.TitleVisibility.hidden;
+       
+        window.titlebarAppearsTransparent = true;
+//        window.styleMask.insert(.fullSizeContentView)
+        window.styleMask.insert(.fullSizeContentView)
 
+
+       // window.styleMask = NSWindow.StyleMask(rawValue: NSFullSizeContentViewWindowMask.rawValue);
+        //window.titleVisibility = NSWindow.titleHidden;
+//        window.titlebarAppearsTransparent = true;
+        //window.styleMask = NSWindow.StyleMask(rawValue: NSFullSizeContentViewWindowMask.rawValue);
+        let windowController = NSWindowController()
+        windowController.contentViewController = window.contentViewController
+        windowController.window = window
+        windowController.showWindow(self)
+        windows.append(windowController)
+        //let windowController = NSWindowController()
+        //windowController.contentViewController = NSApplication.shared.mainWindow!.contentViewController!.copy() as? NSViewController
+//        windowController.window = NSApplication.shared.mainWindow!.copy() as? NSWindow
+//        windowController.showWindow(self)
+//        windows.append(windowController)
+    }
+    
     @IBAction func onClick(_ sender: NSMenuItem) {
         let openPanel = NSOpenPanel()
         openPanel.allowsMultipleSelection = false
@@ -25,7 +55,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             print(openPanel.url!)
             print(sender.parent!)
             windows.append(createWindowPlease(filePath: openPanel.url!))
-
 //            path = openPanel.url!
         }
     }

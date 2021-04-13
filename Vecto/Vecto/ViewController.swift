@@ -156,6 +156,7 @@ class ViewController: NSViewController {
             
         case [.command] where event.characters == "o":
             openFile()
+        
             
         /*########################*/
         /*     MARK: - helper     */
