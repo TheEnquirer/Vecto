@@ -81,7 +81,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         windowController.window = window
         windowController.showWindow(self)
         
-        
         return windowController
     }
     
@@ -93,13 +92,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         openPanel.canCreateDirectories = false
         openPanel.canChooseFiles = true
         openPanel.allowedFileTypes = ["pdf"]
-        
-        let i = openPanel.runModal()
-        if (i == NSApplication.ModalResponse.OK) {
-            windows.append(createWindowPlease(filePath: openPanel.url!))
-        } else {
-            NSApplication.shared.terminate(self)
-        }
+        if (aNotification.userInfo!["NSApplicationLaunchIsDefaultLaunchKey"]! as! Int == 1) {
+            let i = openPanel.runModal()
+            if (i == NSApplication.ModalResponse.OK) {
+                windows.append(createWindowPlease(filePath: openPanel.url!))
+            } else {
+                NSApplication.shared.terminate(self)
+            }
+        } else { print("launching unatrully") }
 
 //        window = NSWindow()
 //        window.styleMask = NSWindow.StyleMask(rawValue: 0xf)
@@ -124,15 +124,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
     }
     
-    func application(_ app: NSApplication, open url: URL) -> Bool {
-        print(url, "woah")
-        return true
+    func application(_ application: NSApplication, open urls: [URL]) {
+        print(urls, "running")
+        for i in urls {
+            windows.append(createWindowPlease(filePath: i))
+        }
     }
 }
-//let storyboard = NSStoryboard(name: "Main", bundle: nil)
-////let vc1 = storyboard.instantiateViewControllerWithIdentifier("WebViewController")
-////let vc2 = storyboard.instantiateViewControllerWithIdentifier("WebViewController")
-//let tester = storyboard.instantiateController(identifier: "test")
