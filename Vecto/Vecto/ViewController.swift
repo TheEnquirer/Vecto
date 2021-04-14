@@ -24,7 +24,8 @@ class ViewController: NSViewController {
     let pdfView = PDFView()
     let label = NSTextField()
     let searcher = NSTextField()
-
+    
+    var windowurl: URL?
     var prefix = 0
     var prevChar = ""
     var dark = true
@@ -155,8 +156,9 @@ class ViewController: NSViewController {
             actionList.append(pdfView.currentPage!)
             handlePrev()
         
-        case [.shift, .command] where event.characters == "N":
-            print("epic")
+        case [.shift, .command] where event.characters == "n":
+            NotificationCenter.default.post(name: Notification.Name("createWindow"), object: self, userInfo: ["epic": self.windowurl])
+
             
         case [.command] where event.characters == "o":
             openFile()
@@ -192,6 +194,7 @@ class ViewController: NSViewController {
     convenience init(initialFile: URL) {
         self.init()
         pdfView.document = PDFDocument(url: initialFile)
+        self.windowurl = initialFile
     }
     
     required init?(coder: NSCoder) {
@@ -215,6 +218,7 @@ class ViewController: NSViewController {
 //            path = openPanel.url!
             if let document = PDFDocument(url: path!) {
                 pdfView.document = document
+                self.windowurl = path
             }
         } else {
            if (path == nil) {

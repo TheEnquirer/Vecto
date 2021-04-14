@@ -85,7 +85,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
+        NotificationCenter.default.addObserver (self, selector: #selector(duplicateMyWindowBecauseHuxIsGreat), name: Notification.Name("createWindow"), object: nil)
+
         let openPanel = NSOpenPanel()
         openPanel.allowsMultipleSelection = false
         openPanel.canChooseDirectories = false
@@ -122,7 +123,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        openPanel.runModal()
         // Insert code here to initialize your application
     }
-
+    
+    @objc func duplicateMyWindowBecauseHuxIsGreat(_ notification: NSNotification) {
+        windows.append(createWindowPlease(filePath: (notification.userInfo!["epic"] as? URL)!))
+    }
+    
     func applicationWillTerminate(_ aNotification: Notification) {
     }
     
