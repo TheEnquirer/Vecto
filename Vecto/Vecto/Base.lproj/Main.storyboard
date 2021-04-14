@@ -65,7 +65,8 @@
                                                 <action selector="onClick:" target="Voe-Tx-rLC" id="PRN-VV-n0z"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Duplicate" keyEquivalent="N" id="TOj-8W-57a">
+                                        <menuItem title="_" keyEquivalent="Y" id="TOj-8W-57a">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES" command="YES"/>
                                             <connections>
                                                 <action selector="dupOnClick:" target="Voe-Tx-rLC" id="f5x-pb-zJ7"/>
                                             </connections>

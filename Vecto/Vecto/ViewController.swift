@@ -6,7 +6,7 @@
 //
 
 import Cocoa
-import PDFKit
+import Quartz.PDFKit
 
 
 //import Foundation
@@ -153,6 +153,9 @@ class ViewController: NSViewController {
         case [.shift] where event.characters == "N":
             actionList.append(pdfView.currentPage!)
             handlePrev()
+        
+        case [.shift, .command] where event.characters == "N":
+            print("epic")
             
         case [.command] where event.characters == "o":
             openFile()
@@ -332,6 +335,7 @@ class ViewController: NSViewController {
         /*########################*/
         /*    MARK: - notifs      */
         /*########################*/
+        
         
         NotificationCenter.default.addObserver (self, selector: #selector(handlePageChange), name: Notification.Name.PDFViewPageChanged, object: nil)
         
