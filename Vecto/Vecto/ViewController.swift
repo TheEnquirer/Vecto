@@ -6,7 +6,7 @@
 //
 
 import Cocoa
-import Quartz.PDFKit
+import PDFKit
 
 
 //import Foundation
@@ -140,7 +140,34 @@ class ViewController: NSViewController {
             
         case [.command, .shift] where event.characters == "h":
             label.isHidden.toggle()
-        
+            
+        case [.shift] where event.characters == "?":
+            let helpText =
+                """
+                j/k: scroll
+                1-9: prefix
+                gg: jump to top + prefix
+                G: jump to bottom
+                H: jump high
+                L: jump low
+                <C-o>: jump back
+                /: search
+                n/N: next/previous hit
+                cmd-H: toggle clean mode
+                opt-L:: toggle theme
+                cmd-o: open file
+                cmd-n: new window
+                cmd-N: duplicate window
+                ?: toggle help
+                """
+            
+            if label.stringValue == helpText {
+                refreshPageCount()
+            } else {
+                label.stringValue = helpText
+                label.font = .systemFont(ofSize: 20)
+            }
+
         /*########################*/
         /*     MARK: - search     */
         /*########################*/
@@ -426,7 +453,7 @@ class ViewController: NSViewController {
     
     func handlePrev(){
         if inMatches <= 0 { inMatches = matchLen } else { inMatches -= 1 }
-        if matchLen > 0 { searchnavHelper() } else {print("nogud")}
+        if matchLen > 0 { searchnavHelper() } else {print("noguud")}
 //        pdfView.selectLine(matches[inMatches])
     }
     
@@ -469,6 +496,7 @@ class ViewController: NSViewController {
     }
     
     func refreshPageCount() {
+        label.font = .systemFont(ofSize: 12)
         var matchD = ""
         if matches.count > 0 {
             matchD = ", " + String(matches.count)
