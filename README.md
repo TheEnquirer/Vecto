@@ -20,7 +20,7 @@ Capital letters mean shift.
 - H: jump high
 - L: jump low
 - <C-o>: jump back
-- / or cmd - f: search
+- / or cmd - f: search. NOTE: press tab when exiting search, not enter. 
 - n/N: next/previous hit
 - cmd - H: toggle clean mode
 - opt - L:: toggle theme
