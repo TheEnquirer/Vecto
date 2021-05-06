@@ -48,11 +48,15 @@ class ViewController: NSViewController {
 //            CIFilter(name: "CIWhitePointAdjust")!
     ]
     
-    let lightFilters = [
+    var FiLight = true
+    
+    var lightFilters = [
 //        CIFilter(name: "CIColorControls", parameters: ["inputContrast": 0.85])!
         CIFilter(name: "CISharpenLuminance", parameters: ["inputSharpness": 1.5])!,
         CIFilter(name: "CIColorControls", parameters: ["inputContrast": 0.55])!
     ]
+
+//    let lightFilters = [CIFilter]()
     
     var darkColors =
         [
@@ -147,6 +151,19 @@ class ViewController: NSViewController {
             pasteboard.setString("\(self.windowurl!)".replacingOccurrences(of: "file://", with: "")
                                     .replacingOccurrences(of: "%20", with: " ")
                                  , forType: .string)
+
+        case [.shift] where event.characters == "C":
+            if (FiLight == true) {
+                lightFilters = [
+            //        CIFilter(name: "CIColorControls", parameters: ["inputContrast": 0.85])!
+                    CIFilter(name: "CISharpenLuminance", parameters: ["inputSharpness": 1.5])!,
+                    CIFilter(name: "CIColorControls", parameters: ["inputContrast": 0.55])!
+                ]
+            } else {
+                lightFilters = [CIFilter]()
+            }
+            FiLight.toggle()
+            refreshView()
             
         case [.command, .shift] where event.characters == "h":
             label.isHidden.toggle()
@@ -160,6 +177,8 @@ class ViewController: NSViewController {
                 G: jump to bottom
                 H: jump high
                 L: jump low
+                y: show in finder and copy path
+                C: toggle filter clear
                 <C-o>: jump back
                 /: search
                 n/N: next/previous hit
@@ -322,18 +341,10 @@ class ViewController: NSViewController {
         searcher.leadingAnchor.constraint(equalTo: pdfView.leadingAnchor, constant: 50).isActive = true
         // TODO: i mean, eh, i dont wanna do this :(
 
-//        searcher.trailingAnchor.constraint(equalTo: pdfView.leadingAnchor).isActive = true
-
-
 
         
         searcher.frame = CGRect(origin: .zero, size: CGSize(width: 150, height: 44))
         searcher.stringValue = "Search..."
-        
-//        searcher.string = "sfs"
-//        searcher.resiz = true
-//        searcher.isScrollEnabled = false
-        
         
         searcher.isBezeled = false
         searcher.textColor = darkColors["countText"]!
@@ -344,23 +355,10 @@ class ViewController: NSViewController {
         searcher.backgroundColor = darkColors["pageCount"]!
         searcher.drawsBackground = true
         
-//        searcher.delegate = self
-        
-        
-//        searcher.didChange
-        
         /*#######################*/
         /*     MARK: - files     */
         /*#######################*/
         
-        
-        
-        
-        
-//        guard var path = Bundle.main.url(forResource: "here3", withExtension: "pdf") else { return }
-        
-//        let path = URL(string: "~/Desktop/here.pdf")!        
-    
         
         /*##########################*/
         /*     MARK: - starters     */
@@ -386,9 +384,6 @@ class ViewController: NSViewController {
         
         NotificationCenter.default.addObserver (self, selector: #selector(handleSubmit), name: NSText.didEndEditingNotification, object: nil)
 
-        
-        
-//        NotificationCenter.default.addObserver (self, selector: #selector(handleSearchEnd), name: Notification.Name.s, object: nil)
     }
     
     

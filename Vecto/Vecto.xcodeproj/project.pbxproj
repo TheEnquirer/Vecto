@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B6B2738E25D63C0D00B35F97 /* here3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B6B2738B25D63C0C00B35F97 /* here3.pdf */; };
-		B6B2738F25D63C0D00B35F97 /* here1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B6B2738C25D63C0D00B35F97 /* here1.pdf */; };
-		B6B2739025D63C0D00B35F97 /* here2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B6B2738D25D63C0D00B35F97 /* here2.pdf */; };
 		B6CA40262623C13100355D63 /* MyNewWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6CA40252623C13100355D63 /* MyNewWindow.xib */; };
 		B6CA40272623C13100355D63 /* MyNewWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6CA40252623C13100355D63 /* MyNewWindow.xib */; };
 		B6CA40282623C13100355D63 /* MyNewWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6CA40252623C13100355D63 /* MyNewWindow.xib */; };
@@ -39,9 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B6B2738B25D63C0C00B35F97 /* here3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = here3.pdf; sourceTree = SOURCE_ROOT; };
-		B6B2738C25D63C0D00B35F97 /* here1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = here1.pdf; sourceTree = SOURCE_ROOT; };
-		B6B2738D25D63C0D00B35F97 /* here2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = here2.pdf; sourceTree = SOURCE_ROOT; };
 		B6CA40252623C13100355D63 /* MyNewWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyNewWindow.xib; sourceTree = "<group>"; };
 		B890790C25D5FD2B00ECCD34 /* Vecto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vecto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B890790F25D5FD2B00ECCD34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,9 +103,6 @@
 				B890790F25D5FD2B00ECCD34 /* AppDelegate.swift */,
 				B890791125D5FD2B00ECCD34 /* ViewController.swift */,
 				B890791325D5FD2E00ECCD34 /* Assets.xcassets */,
-				B6B2738C25D63C0D00B35F97 /* here1.pdf */,
-				B6B2738D25D63C0D00B35F97 /* here2.pdf */,
-				B6B2738B25D63C0C00B35F97 /* here3.pdf */,
 				B890791525D5FD2E00ECCD34 /* Main.storyboard */,
 				B890791825D5FD2E00ECCD34 /* Info.plist */,
 				B890791925D5FD2E00ECCD34 /* Vecto.entitlements */,
@@ -242,9 +233,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B890791425D5FD2E00ECCD34 /* Assets.xcassets in Resources */,
-				B6B2739025D63C0D00B35F97 /* here2.pdf in Resources */,
-				B6B2738E25D63C0D00B35F97 /* here3.pdf in Resources */,
-				B6B2738F25D63C0D00B35F97 /* here1.pdf in Resources */,
 				B890791725D5FD2E00ECCD34 /* Main.storyboard in Resources */,
 				B6CA40262623C13100355D63 /* MyNewWindow.xib in Resources */,
 			);
