@@ -137,6 +137,16 @@ class ViewController: NSViewController {
         case [.option, .shift] where event.characters == "Ò":
             dark.toggle()
             refreshView()
+//            /Users/huxmarv/Downloads/10-18-20, 8_49 PM Office Lens.pdf
+//            Users/huxmarv/Downloads/10-18-20, 208_49 20PM 20Office 20Lens.pdf
+        case [] where event.characters == "y":
+//            print(self.windowurl!)
+            NSWorkspace.shared.activateFileViewerSelecting([self.windowurl!])
+            let pasteboard = NSPasteboard.general
+            pasteboard.declareTypes([.string], owner: nil)
+            pasteboard.setString("\(self.windowurl!)".replacingOccurrences(of: "file://", with: "")
+                                    .replacingOccurrences(of: "%20", with: " ")
+                                 , forType: .string)
             
         case [.command, .shift] where event.characters == "h":
             label.isHidden.toggle()
@@ -309,11 +319,6 @@ class ViewController: NSViewController {
         
         view.addSubview(searcher)
         searcher.translatesAutoresizingMaskIntoConstraints = false
-        
-//        searcher.leadingAnchor.constraint(equalTo: pdfView.leadingAnchor).isActive = true
-//        searcher.trailingAnchor.constraint(equalTo: pdfView.leadingAnchor).isActive = true
-//        searcher.trailingAnchor.constraint(equalTo: pdfView.trailingAnchor).isActive = true
-//        searcher.topAnchor.constraint(equalTo: pdfView.topAnchor).isActive = true
         searcher.leadingAnchor.constraint(equalTo: pdfView.leadingAnchor, constant: 50).isActive = true
         // TODO: i mean, eh, i dont wanna do this :(
 
